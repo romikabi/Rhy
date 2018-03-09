@@ -13,14 +13,7 @@
 import UIKit
 
 enum SongSearch
-{
-    struct SongItem{
-        var artistName: String
-        var name: String
-        var id: String
-        var url: URL
-    }
-    
+{    
     enum Search
     {
         struct Request

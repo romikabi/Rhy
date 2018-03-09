@@ -28,14 +28,7 @@ class SongSearchPresenter: SongSearchPresentationLogic
     {
         let viewModel = SongSearch.Search.ViewModel(items:
             response.items.map {
-                SongSearch.SongItem(
-                    artistName: $0.artistName,
-                    name: $0.name,
-                    id: $0.identifier,
-                    url: $0.artwork.imageURL(
-                        size: CGSize(
-                            width: $0.artwork.width,
-                            height: $0.artwork.height)))
+                SongItem(from: $0)
         })
         DispatchQueue.main.async {
             self.viewController?.displaySearchResults(viewModel: viewModel)
@@ -46,17 +39,28 @@ class SongSearchPresenter: SongSearchPresentationLogic
     {
         let viewModel = SongSearch.Recent.ViewModel(items:
             response.items.map {
-                SongSearch.SongItem(
-                    artistName: $0.artistName,
-                    name: $0.name,
-                    id: $0.identifier,
-                    url: $0.artwork.imageURL(
-                        size: CGSize(
-                            width: $0.artwork.width,
-                            height: $0.artwork.height)))
+                SongItem(from: $0)
         })
         DispatchQueue.main.async {
             self.viewController?.displayRecent(viewModel: viewModel)
         }
+    }
+}
+
+
+struct SongItem{
+    var artistName: String
+    var name: String
+    var albumName: String
+    var id: String
+    var url: URL
+    
+    init(from item: MediaItem){
+        artistName = item.artistName
+        name = item.name
+        albumName = item.albumName
+        id = item.identifier
+        let size = CGSize(width: item.artwork.width, height: item.artwork.height)
+        url = item.artwork.imageURL(size: size)
     }
 }

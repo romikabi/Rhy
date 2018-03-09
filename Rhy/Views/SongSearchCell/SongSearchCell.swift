@@ -16,7 +16,7 @@ class SongSearchCell: UICollectionViewCell {
         let screenWidth = UIScreen.main.bounds.size.width
         containerWidthConstraint.constant = screenWidth - (8 * 2)
     }
-    var item: SongSearch.SongItem?
+    var item: SongItem?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

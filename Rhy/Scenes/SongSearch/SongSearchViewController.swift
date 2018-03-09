@@ -106,7 +106,7 @@ class SongSearchViewController: UIViewController
         interactor?.recent(request: request)
     }
     
-    var items: [SongSearch.SongItem] = []{
+    var items: [SongItem] = []{
         didSet{
             collectionView.reloadData()
         }
@@ -172,7 +172,7 @@ extension SongSearchViewController: UICollectionViewDelegate, UICollectionViewDa
             
             cell.artistLabel.text = item.artistName
             cell.titleLabel.text = item.name
-            cell.albumLabel.text = "todo"
+            cell.albumLabel.text = item.albumName
             
             return cell
         }

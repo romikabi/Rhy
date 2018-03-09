@@ -32,6 +32,8 @@ class MediaItem {
         static let artistName = "artistName"
         
         static let artwork = "artwork"
+        
+        static let albumName = "albumName"
     }
     
     // MARK: Properties
@@ -51,6 +53,8 @@ class MediaItem {
     /// The type of the `MediaItem` which in this application can be either `songs` or `albums`.
     let type: MediaType
     
+    let albumName: String
+    
     // MARK: Initialization
     
     init(json: [String: Any]) throws {
@@ -67,8 +71,16 @@ class MediaItem {
             throw SerializationError.missing(JSONKeys.attributes)
         }
         
+        for k in json{
+            print("\(k.key) \(k.value)")
+        }
+        
         guard let name = attributes[JSONKeys.name] as? String else {
             throw SerializationError.missing(JSONKeys.name)
+        }
+        
+        guard let albumName = attributes[JSONKeys.albumName] as? String else{
+            throw SerializationError.missing(JSONKeys.albumName)
         }
         
         let artistName = attributes[JSONKeys.artistName] as? String ?? " "
@@ -82,5 +94,6 @@ class MediaItem {
         self.name = name
         self.artistName = artistName
         self.artwork = artwork
+        self.albumName = albumName
     }
 }
