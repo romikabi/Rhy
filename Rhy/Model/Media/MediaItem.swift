@@ -71,10 +71,6 @@ class MediaItem {
             throw SerializationError.missing(JSONKeys.attributes)
         }
         
-        for k in json{
-            print("\(k.key) \(k.value)")
-        }
-        
         guard let name = attributes[JSONKeys.name] as? String else {
             throw SerializationError.missing(JSONKeys.name)
         }
