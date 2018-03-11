@@ -12,17 +12,19 @@ import GameplayKit
 protocol NodeSpawnTarget{
     func createNode(on line: Int) -> SKNode
     func addEntity(entity: GKEntity)
-    func getSize() -> CGSize
+    func removeEntity(entity: GKEntity)
+    func increaceScore(score: Double)
 }
 
 class NodeSpawnComponent : GKComponent {
     var level: Level
     var target: NodeSpawnTarget
-    var timePassed: TimeInterval = 0
+    private var timePassed: TimeInterval = 0
     
-    init(level: Level, target: NodeSpawnTarget){
+    init(level: Level, target: NodeSpawnTarget, startTime: TimeInterval){
         self.level = level
         self.target = target
+        self.timePassed = startTime
         super.init()
     }
     
@@ -34,7 +36,7 @@ class NodeSpawnComponent : GKComponent {
         let currentTime = timePassed + seconds
         
         for n in level.nodes{
-            let time = Double(n.time)/1000
+            let time = Double(n.time)/1000 - 2 //todo decompose magic numbers
             
             if time < timePassed{
                 continue
@@ -44,8 +46,11 @@ class NodeSpawnComponent : GKComponent {
             }
             
             let sknode = target.createNode(on: n.line)
-            let tapnode = TapNode(node: sknode, timeToPassScreen: 2.0, sceneHeight: target.getSize().height)
+            let tapnode = TapNode(node: sknode, speed: 500, removeFromScene: target.removeEntity(entity:), increaceScore: target.increaceScore(score:))
             target.addEntity(entity: tapnode)
+            if let presence = tapnode.component(ofType: PresenceComponent.self){
+                presence.fadeIn(withDuration: 0.2)
+            }
         }
         
         timePassed = currentTime

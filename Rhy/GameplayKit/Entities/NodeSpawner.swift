@@ -10,9 +10,9 @@ import Foundation
 import GameplayKit
 
 class NodeSpawner : GKEntity{
-    init(level: Level, target: NodeSpawnTarget){
+    init(level: Level, target: NodeSpawnTarget, startTime: TimeInterval){
         super.init()
-        let nsComponent = NodeSpawnComponent(level: level, target: target)
+        let nsComponent = NodeSpawnComponent(level: level, target: target, startTime: startTime)
         addComponent(nsComponent)
     }
     

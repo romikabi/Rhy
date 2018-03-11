@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		88066FB52052CD710082B804 /* AppleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB42052CD710082B804 /* AppleManager.swift */; };
-		88066FBA2052E1820082B804 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB92052E1820082B804 /* CreateViewController.swift */; };
+		88066FBA2052E1820082B804 /* LevelCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB92052E1820082B804 /* LevelCreateViewController.swift */; };
 		88066FBC2052E6F10082B804 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88066FBB2052E6F10082B804 /* keys.plist */; };
+		88084E0C205554BE0047F930 /* LevelCreateScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 88084E0B205554BE0047F930 /* LevelCreateScene.sks */; };
+		88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88084E0D205558CE0047F930 /* PresenceComponent.swift */; };
 		88449DC92046AC990091A904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DC82046AC990091A904 /* Extensions.swift */; };
 		88449DCC2046D2AA0091A904 /* TapComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DCB2046D2AA0091A904 /* TapComponent.swift */; };
 		8860E790205121E60067DFAE /* TapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860E78F205121E60067DFAE /* TapNode.swift */; };
@@ -17,7 +19,6 @@
 		8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8866F04A2052A89D000CE812 /* SongSearchCell.xib */; };
 		8897DEE5203F065A00F4672F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEE4203F065A00F4672F /* AppDelegate.swift */; };
 		8897DEE7203F065A00F4672F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8897DEE6203F065A00F4672F /* GameScene.sks */; };
-		8897DEE9203F065A00F4672F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8897DEE8203F065A00F4672F /* Actions.sks */; };
 		8897DEEB203F065A00F4672F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEEA203F065A00F4672F /* GameScene.swift */; };
 		8897DEED203F065A00F4672F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEEC203F065A00F4672F /* GameViewController.swift */; };
 		8897DEF0203F065A00F4672F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8897DEEE203F065A00F4672F /* Main.storyboard */; };
@@ -51,8 +52,10 @@
 
 /* Begin PBXFileReference section */
 		88066FB42052CD710082B804 /* AppleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleManager.swift; sourceTree = "<group>"; };
-		88066FB92052E1820082B804 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		88066FB92052E1820082B804 /* LevelCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreateViewController.swift; sourceTree = "<group>"; };
 		88066FBB2052E6F10082B804 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		88084E0B205554BE0047F930 /* LevelCreateScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelCreateScene.sks; sourceTree = "<group>"; };
+		88084E0D205558CE0047F930 /* PresenceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceComponent.swift; sourceTree = "<group>"; };
 		88449DC82046AC990091A904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88449DCB2046D2AA0091A904 /* TapComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapComponent.swift; sourceTree = "<group>"; };
 		8860E78F205121E60067DFAE /* TapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNode.swift; sourceTree = "<group>"; };
@@ -61,7 +64,6 @@
 		8897DEE1203F065A00F4672F /* Rhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8897DEE4203F065A00F4672F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8897DEE6203F065A00F4672F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		8897DEE8203F065A00F4672F /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		8897DEEA203F065A00F4672F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8897DEEC203F065A00F4672F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8897DEEF203F065A00F4672F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,23 +116,23 @@
 			path = LevelSelect;
 			sourceTree = "<group>";
 		};
-		88066FB72052E0F90082B804 /* PlayScene */ = {
+		88066FB72052E0F90082B804 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
 				8897DEE6203F065A00F4672F /* GameScene.sks */,
-				8897DEE8203F065A00F4672F /* Actions.sks */,
 				8897DEEA203F065A00F4672F /* GameScene.swift */,
 				8897DEEC203F065A00F4672F /* GameViewController.swift */,
 			);
-			path = PlayScene;
+			path = GameScene;
 			sourceTree = "<group>";
 		};
-		88066FB82052E10D0082B804 /* CreateScene */ = {
+		88066FB82052E10D0082B804 /* LevelCreateScene */ = {
 			isa = PBXGroup;
 			children = (
-				88066FB92052E1820082B804 /* CreateViewController.swift */,
+				88066FB92052E1820082B804 /* LevelCreateViewController.swift */,
+				88084E0B205554BE0047F930 /* LevelCreateScene.sks */,
 			);
-			path = CreateScene;
+			path = LevelCreateScene;
 			sourceTree = "<group>";
 		};
 		88449DCA2046D1860091A904 /* Components */ = {
@@ -140,6 +142,7 @@
 				88A120A1205122C20071D1D0 /* NodeComponent.swift */,
 				88A120A3205125370071D1D0 /* MoveDownComponent.swift */,
 				88A120A720512A9D0071D1D0 /* NodeSpawnComponent.swift */,
+				88084E0D205558CE0047F930 /* PresenceComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -270,8 +273,8 @@
 		88C661EC205169FF00F0D112 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				88066FB82052E10D0082B804 /* CreateScene */,
-				88066FB72052E0F90082B804 /* PlayScene */,
+				88066FB82052E10D0082B804 /* LevelCreateScene */,
+				88066FB72052E0F90082B804 /* GameScene */,
 				88066FB62052E0E70082B804 /* LevelSelect */,
 				88C661ED20516A1C00F0D112 /* SongSearch */,
 			);
@@ -372,8 +375,8 @@
 				8897DEE7203F065A00F4672F /* GameScene.sks in Resources */,
 				8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */,
 				8897DEF2203F065A00F4672F /* Assets.xcassets in Resources */,
+				88084E0C205554BE0047F930 /* LevelCreateScene.sks in Resources */,
 				8897DEF5203F065A00F4672F /* LaunchScreen.storyboard in Resources */,
-				8897DEE9203F065A00F4672F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,11 +395,12 @@
 				8897DF17204204E000F4672F /* AppleMusicRequestFactory.swift in Sources */,
 				8897DF0C2042048E00F4672F /* AuthorizationManager.swift in Sources */,
 				88A120A820512A9D0071D1D0 /* NodeSpawnComponent.swift in Sources */,
-				88066FBA2052E1820082B804 /* CreateViewController.swift in Sources */,
+				88066FBA2052E1820082B804 /* LevelCreateViewController.swift in Sources */,
 				88C661F720516A3A00F0D112 /* SongSearchModels.swift in Sources */,
 				88C661F620516A3A00F0D112 /* SongSearchRouter.swift in Sources */,
 				8897DEEB203F065A00F4672F /* GameScene.swift in Sources */,
 				8897DF082042048E00F4672F /* ImageCacheManager.swift in Sources */,
+				88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */,
 				8897DF1E2042E0EC00F4672F /* Node.swift in Sources */,
 				88A120A4205125370071D1D0 /* MoveDownComponent.swift in Sources */,
 				88C661F820516A3A00F0D112 /* SongSearchViewController.swift in Sources */,

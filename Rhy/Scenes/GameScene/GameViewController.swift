@@ -232,7 +232,9 @@ class GameViewController: UIViewController {
 """.data(using: .utf8)!)
                 }catch{}
                 
-                sceneNode.level = level
+                if let level = level{
+                    sceneNode.initiate(with: level, song: "todo")
+                }
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill

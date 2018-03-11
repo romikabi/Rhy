@@ -10,14 +10,21 @@ import Foundation
 import GameplayKit
 
 class MoveDownComponent : GKComponent{
-    init(timeToPassScreen time:TimeInterval, height: CGFloat){
-        timeToPassScreen = time
-        self.height = Double(height)
+    
+    /// Returns an object initialized with given speed.
+    ///
+    /// - Parameter speed: Speed of node in pixels per second.
+    init(speed: Double){
+        self.speed = speed
         super.init()
     }
     
-    var timeToPassScreen : TimeInterval
-    var height: Double
+    /// Speed of node movement in pixels per second.
+    var speed: Double
+    
+    
+    /// Speed multiplyer.
+    var scale: Double = 1
     
     var nodeComponent : NodeComponent?{
         get{
@@ -26,8 +33,7 @@ class MoveDownComponent : GKComponent{
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        let delta = (height*seconds)/timeToPassScreen
-        nodeComponent?.node.position.y -= CGFloat(delta)
+        nodeComponent?.node.position.y -= CGFloat(seconds*speed*scale)
     }
     
     required init?(coder aDecoder: NSCoder) {
