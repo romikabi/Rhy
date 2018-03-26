@@ -13,7 +13,7 @@ class SongSearchCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let screenWidth = UIScreen.main.bounds.size.width
+        let screenWidth = UIScreen.main.bounds.width
         containerWidthConstraint.constant = screenWidth - (8 * 2)
     }
     var item: SongItem?

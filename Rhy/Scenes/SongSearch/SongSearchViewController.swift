@@ -72,22 +72,32 @@ class SongSearchViewController: UIViewController
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search songs"
-        //searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
+        
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barStyle = .black
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     
     func registerNibs(){
-        self.collectionView.register(UINib(nibName: "SongSearchCell", bundle: nil), forCellWithReuseIdentifier: "songSearchCell")
+        self.collectionView.register(UINib(nibName: "SongSearchCell", bundle: nil), forCellWithReuseIdentifier: ReuseIdentifiers.SongSearchCell)
     }
     // MARK: View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+            flow.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - (8*2), height: 100)
+        }
+        
         initSearchController()
         registerNibs()
+        self.view.backgroundColor = UIColor.dark
         recent()
     }
     
@@ -113,6 +123,7 @@ class SongSearchViewController: UIViewController
     }
     
     var imageCacheManager = ImageCacheManager()
+    var musicPlayerManager = MusicPlayerManager()
 }
 
 extension SongSearchViewController : SongSearchDisplayLogic{
@@ -126,9 +137,13 @@ extension SongSearchViewController : SongSearchDisplayLogic{
     }
 }
 
-extension SongSearchViewController: UISearchResultsUpdating {
+extension SongSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchController.searchBar.text, text != ""{
             self.search(query: text)
         }
@@ -139,12 +154,18 @@ extension SongSearchViewController: UISearchResultsUpdating {
 }
 
 extension SongSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        print("romikabitag: name=\(item.name);id=\(item.id)")
+        router?.routeToLevelSelect(segue: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "songSearchCell", for: indexPath) as? SongSearchCell{
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifiers.SongSearchCell, for: indexPath) as? SongSearchCell{
             
             let item = items[indexPath.row]
             

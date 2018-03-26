@@ -17,6 +17,6 @@ class Level : Codable{
             nodes.sort { $0.time < $1.time }
         }
     }
-    var song: String
+    var songId: String
     var author: String?
 }

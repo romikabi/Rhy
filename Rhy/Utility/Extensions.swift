@@ -79,3 +79,47 @@ class ImageCache{
     static let Instance = ImageCache()
     var images : [URL : UIImage] = [:]
 }
+
+// Color palette
+
+extension UIColor {
+    
+    @nonobjc class var lightblue: UIColor {
+        return UIColor(red: 91.0 / 255.0, green: 195.0 / 255.0, blue: 235.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var darkSeafoamGreen: UIColor {
+        return UIColor(red: 59.0 / 255.0, green: 178.0 / 255.0, blue: 115.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var dustyOrange: UIColor {
+        return UIColor(red: 240.0 / 255.0, green: 100.0 / 255.0, blue: 73.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var battleshipGrey: UIColor {
+        return UIColor(red: 120.0 / 255.0, green: 121.0 / 255.0, blue: 128.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var dark: UIColor {
+        return UIColor(red: 29.0 / 255.0, green: 31.0 / 255.0, blue: 41.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var white: UIColor {
+        return UIColor(white: 216.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var perrywinkle: UIColor {
+        return UIColor(red: 159.0 / 255.0, green: 159.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
+    }
+    
+}
+
+// Text styles
+
+extension UIFont {
+    
+    class var textStyle: UIFont {
+        return UIFont(name: "HelveticaNeue-Thin", size: 60.0)!
+    }
+    
+}

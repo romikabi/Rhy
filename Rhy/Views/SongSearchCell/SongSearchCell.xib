@@ -21,7 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="songSearchCell" id="gTV-IL-0wX" customClass="SongSearchCell" customModule="Rhy" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SongSearchCell" id="gTV-IL-0wX" customClass="SongSearchCell" customModule="Rhy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -46,23 +46,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="God's Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67U-vL-6GA" userLabel="Title">
                                 <rect key="frame" x="97" y="8" width="90" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scary Hours – Single (2018)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6T-op-nRc" userLabel="Album">
                                 <rect key="frame" x="97" y="71" width="168" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shb-uJ-ax9" userLabel="Author">
                                 <rect key="frame" x="97" y="41.5" width="36" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="e6T-op-nRc" firstAttribute="bottom" secondItem="39a-b7-dXq" secondAttribute="bottom" id="82f-jj-lBQ"/>
                             <constraint firstItem="67U-vL-6GA" firstAttribute="top" secondItem="39a-b7-dXq" secondAttribute="top" constant="-4" id="9gr-dQ-Crg"/>
@@ -74,6 +73,7 @@
                             <constraint firstAttribute="width" constant="414" id="THQ-Qe-YPC"/>
                             <constraint firstItem="Shb-uJ-ax9" firstAttribute="leading" secondItem="67U-vL-6GA" secondAttribute="leading" id="UPk-dA-kNP"/>
                             <constraint firstAttribute="bottom" secondItem="39a-b7-dXq" secondAttribute="bottom" constant="12" id="Wbk-UC-NOC"/>
+                            <constraint firstAttribute="height" constant="100" id="j9p-IX-Pbi"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Shb-uJ-ax9" secondAttribute="trailing" constant="8" id="mg3-3Q-sdB"/>
                             <constraint firstItem="Shb-uJ-ax9" firstAttribute="centerY" secondItem="39a-b7-dXq" secondAttribute="centerY" id="obP-ZA-ugn"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="67U-vL-6GA" secondAttribute="trailing" constant="8" id="qSg-bN-Uoh"/>

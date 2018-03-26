@@ -14,47 +14,46 @@ import UIKit
 
 @objc protocol SongSearchRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToLevelSelect(segue: UIStoryboardSegue?)
 }
 
 protocol SongSearchDataPassing
 {
-  var dataStore: SongSearchDataStore? { get }
+    var dataStore: SongSearchDataStore? { get }
 }
 
 class SongSearchRouter: NSObject, SongSearchRoutingLogic, SongSearchDataPassing
 {
-  weak var viewController: SongSearchViewController?
-  var dataStore: SongSearchDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: SongSearchViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: SongSearchDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: SongSearchViewController?
+    var dataStore: SongSearchDataStore?
+    
+    // MARK: Routing
+    
+    func routeToLevelSelect(segue: UIStoryboardSegue?)
+    {
+        if let segue = segue {
+            let destinationVC = segue.destination as! LevelSelectViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToLevelSelect(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "LevelSelectViewController") as! LevelSelectViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToLevelSelect(source: dataStore!, destination: &destinationDS)
+            navigateToLevelSelect(source: viewController!, destination: destinationVC)
+        }
+    }
+    
+    func navigateToLevelSelect(source: SongSearchViewController, destination: LevelSelectViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    
+    func passDataToLevelSelect(source: SongSearchDataStore, destination: inout LevelSelectDataStore)
+    {
+        let row = viewController?.collectionView.indexPathsForSelectedItems?.first?.row
+        if let row = row{
+            destination.songId = source.search[row].identifier
+        }
+    }
 }

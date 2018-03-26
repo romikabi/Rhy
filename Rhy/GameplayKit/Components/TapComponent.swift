@@ -45,7 +45,7 @@ class TapComponent : GKComponent{
                 return
             }
             
-            increaceScore(Double(abs(node.position.y)) < 50 ? 100 : 50)
+            increaceScore(Double(abs(node.position.y)) < 25 ? 100 : 50)
             
             if let presence = presenceComponent{
                 presence.popOut(expTime: 0.05, inTime: 0.1)
