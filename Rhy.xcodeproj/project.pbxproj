@@ -10,13 +10,14 @@
 		88066FB52052CD710082B804 /* AppleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB42052CD710082B804 /* AppleManager.swift */; };
 		88066FBA2052E1820082B804 /* LevelCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB92052E1820082B804 /* LevelCreateViewController.swift */; };
 		88066FBC2052E6F10082B804 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88066FBB2052E6F10082B804 /* keys.plist */; };
-		88084E0C205554BE0047F930 /* LevelCreateScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 88084E0B205554BE0047F930 /* LevelCreateScene.sks */; };
 		88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88084E0D205558CE0047F930 /* PresenceComponent.swift */; };
 		88449DC92046AC990091A904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DC82046AC990091A904 /* Extensions.swift */; };
 		88449DCC2046D2AA0091A904 /* TapComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DCB2046D2AA0091A904 /* TapComponent.swift */; };
 		8860E790205121E60067DFAE /* TapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860E78F205121E60067DFAE /* TapNode.swift */; };
 		8866F04B2052A89D000CE812 /* SongSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8866F0492052A89D000CE812 /* SongSearchCell.swift */; };
 		8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8866F04A2052A89D000CE812 /* SongSearchCell.xib */; };
+		8885941B2070E849002450CD /* LevelCreateScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8885941A2070E849002450CD /* LevelCreateScene.sks */; };
+		8885941D2070E860002450CD /* LevelCreateScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885941C2070E860002450CD /* LevelCreateScene.swift */; };
 		8897DEE5203F065A00F4672F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEE4203F065A00F4672F /* AppDelegate.swift */; };
 		8897DEE7203F065A00F4672F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8897DEE6203F065A00F4672F /* GameScene.sks */; };
 		8897DEEB203F065A00F4672F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEEA203F065A00F4672F /* GameScene.swift */; };
@@ -65,13 +66,14 @@
 		88066FB42052CD710082B804 /* AppleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleManager.swift; sourceTree = "<group>"; };
 		88066FB92052E1820082B804 /* LevelCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreateViewController.swift; sourceTree = "<group>"; };
 		88066FBB2052E6F10082B804 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
-		88084E0B205554BE0047F930 /* LevelCreateScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelCreateScene.sks; sourceTree = "<group>"; };
 		88084E0D205558CE0047F930 /* PresenceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceComponent.swift; sourceTree = "<group>"; };
 		88449DC82046AC990091A904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88449DCB2046D2AA0091A904 /* TapComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapComponent.swift; sourceTree = "<group>"; };
 		8860E78F205121E60067DFAE /* TapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNode.swift; sourceTree = "<group>"; };
 		8866F0492052A89D000CE812 /* SongSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchCell.swift; sourceTree = "<group>"; };
 		8866F04A2052A89D000CE812 /* SongSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongSearchCell.xib; sourceTree = "<group>"; };
+		8885941A2070E849002450CD /* LevelCreateScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelCreateScene.sks; sourceTree = "<group>"; };
+		8885941C2070E860002450CD /* LevelCreateScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreateScene.swift; sourceTree = "<group>"; };
 		8897DEE1203F065A00F4672F /* Rhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8897DEE4203F065A00F4672F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8897DEE6203F065A00F4672F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -158,7 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				88066FB92052E1820082B804 /* LevelCreateViewController.swift */,
-				88084E0B205554BE0047F930 /* LevelCreateScene.sks */,
+				8885941A2070E849002450CD /* LevelCreateScene.sks */,
+				8885941C2070E860002450CD /* LevelCreateScene.swift */,
 			);
 			path = LevelCreateScene;
 			sourceTree = "<group>";
@@ -379,7 +382,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Roman Abuzyarov";
 				TargetAttributes = {
 					8897DEE0203F065A00F4672F = {
@@ -424,8 +427,8 @@
 				8897DEE7203F065A00F4672F /* GameScene.sks in Resources */,
 				8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */,
 				88F60D162066BD7A000C8B0A /* LevelSelectCell.xib in Resources */,
+				8885941B2070E849002450CD /* LevelCreateScene.sks in Resources */,
 				8897DEF2203F065A00F4672F /* Assets.xcassets in Resources */,
-				88084E0C205554BE0047F930 /* LevelCreateScene.sks in Resources */,
 				8897DEF5203F065A00F4672F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +463,7 @@
 				88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */,
 				8897DF1E2042E0EC00F4672F /* Node.swift in Sources */,
 				88A120A4205125370071D1D0 /* MoveDownComponent.swift in Sources */,
+				8885941D2070E860002450CD /* LevelCreateScene.swift in Sources */,
 				88C661F820516A3A00F0D112 /* SongSearchViewController.swift in Sources */,
 				88A120A2205122C20071D1D0 /* NodeComponent.swift in Sources */,
 				8897DF14204204E000F4672F /* SerializationError.swift in Sources */,
@@ -519,6 +523,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -526,6 +531,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -553,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -576,6 +582,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -583,6 +590,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -604,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

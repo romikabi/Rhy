@@ -15,8 +15,8 @@ class Node : Codable{
 //        case swipe
 //        case holdswipe
     }
-    var line: Int
-    var type: NodeType
-    var time: Int
-    var times: [Int]
+    var line: Int = 0
+    var type: NodeType = .tap
+    var time: Int = 0
+    var times: [Int] = []
 }

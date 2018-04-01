@@ -33,7 +33,7 @@ class NodeSpawnComponent : GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        let currentTime = timePassed + seconds
+        let currentTime = seconds
         
         for n in level.nodes{
             let time = Double(n.time)/1000 - 2 //todo decompose magic numbers

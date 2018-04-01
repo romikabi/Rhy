@@ -50,6 +50,7 @@ class GameScene: SKScene {
     
     
     // Other
+    var songId : String?
     private var features: LevelFeatures = LevelFeatures()
     private let yStart = 1000
     private var score: Double = 0{
@@ -84,7 +85,7 @@ class GameScene: SKScene {
             startTime = CACurrentMediaTime()
             self.musicPlayerManager.beginPlayback(itemID: self.songId!)
             
-            
+            print("nodespawner added")
         }
     }
     
@@ -123,7 +124,9 @@ class GameScene: SKScene {
         
     }
     
-    var songId : String?
+    override func didMove(to view: SKView) {
+        view.isMultipleTouchEnabled = true
+    }
     
     override func sceneDidLoad() {
         
@@ -146,7 +149,7 @@ class GameScene: SKScene {
         self.blur?.alpha = 0
         
         let w = self.size.width
-        self.genericNode = SKShapeNode.init(circleOfRadius: w/12)
+        self.genericNode = SKShapeNode.init(circleOfRadius: w/11)
         if let spinnyNode = self.genericNode {
             spinnyNode.lineWidth = 2
         }
@@ -178,7 +181,7 @@ class GameScene: SKScene {
             for node in self.nodes(at: touch.location(in: self)){
                 if node.name == "pause"{
                     musicPlayerManager.togglePlayPause()
-                    blur?.run(SKAction.fadeAlpha(to: 0.5, duration: 0.5))
+                    blur?.run(SKAction.fadeAlpha(to: 0.5, duration: 0.2))
                 }
                 if node.name == "menu"{
                     viewController?.performSegue(withIdentifier: "goToInitial", sender: viewController)
@@ -189,6 +192,10 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         let currentTime = musicPlayerManager.musicPlayerController.currentPlaybackTime
+        if musicPlayerManager.musicPlayerController.playbackState != .playing{
+            return
+        }
+        
         // Called before each frame is rendered
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
@@ -219,7 +226,12 @@ class GameScene: SKScene {
         }
         // Update entities
         for entity in self.entities {
-            entity.update(deltaTime: dt)
+            if let _ = entity.component(ofType: NodeSpawnComponent.self){
+                entity.update(deltaTime: currentTime)
+            }
+            else{
+                entity.update(deltaTime: dt)
+            }
             if let node = entity.component(ofType: NodeComponent.self)?.node{
                 if node.position.y < -300{
                     streak = 0

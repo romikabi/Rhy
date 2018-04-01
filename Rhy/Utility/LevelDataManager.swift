@@ -28,9 +28,12 @@ class LevelDataManager{
         let decoder = JSONDecoder()
         do
         {
-            return try (ud.stringArray(forKey: id) ?? []).flatMap {
+            return try (ud.stringArray(forKey: id) ?? []).map {
                 try decoder.decode(Level.self, from: $0.data(using: .utf8)!)
             }
-        } catch{ return [] }
+        } catch{
+            print("error while decoding level")
+            return []
+        }
     }
 }
