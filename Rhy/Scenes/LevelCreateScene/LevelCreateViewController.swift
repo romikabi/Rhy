@@ -11,6 +11,8 @@ import GameplayKit
 import SpriteKit
 
 class LevelCreateViewController: UIViewController {
+    
+    var songId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,8 @@ class LevelCreateViewController: UIViewController {
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
                 
+                sceneNode.initiate(song: songId!, lineAmount: 3)
+                
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
@@ -50,11 +54,11 @@ class LevelCreateViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            return .allButUpsideDown
+//        } else {
+//            return .all
+//        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 extension UIColor{
     convenience init(hex: String){
@@ -122,4 +123,46 @@ extension UIFont {
         return UIFont(name: "HelveticaNeue-Thin", size: 60.0)!
     }
     
+}
+
+extension CGFloat{
+    var abs : CGFloat{
+        get{
+            return (self > 0 ? self : -self)
+        }
+    }
+}
+
+extension SKShapeNode{
+    func setColor(line: Int){
+        switch line{
+        case 0:
+            self.fillColor = UIColor.lightblue
+            self.strokeColor = UIColor.lightblue
+        case 1:
+            self.fillColor = UIColor.darkSeafoamGreen
+            self.strokeColor = UIColor.darkSeafoamGreen
+        case 2:
+            self.fillColor = UIColor.dustyOrange
+            self.strokeColor = UIColor.dustyOrange
+        default:
+            ()
+        }
+    }
+}
+
+extension Int {
+    var double : Double{
+        get{
+            return Double(self)
+        }
+    }
+}
+
+extension Double {
+    var int : Int{
+        get{
+            return Int(self)
+        }
+    }
 }

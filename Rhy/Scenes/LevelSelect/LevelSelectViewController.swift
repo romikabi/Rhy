@@ -55,6 +55,7 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
     
     private func registerNibs(){
         self.collectionView.register(UINib(nibName: "LevelSelectCell", bundle: nil), forCellWithReuseIdentifier: ReuseIdentifiers.LevelSelectCell)
+        self.collectionView.register(UINib(nibName: "NewLevelCell", bundle: nil), forCellWithReuseIdentifier: ReuseIdentifiers.NewLevelCell)
     }
     
     // MARK: Routing
@@ -104,24 +105,40 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
 
 extension LevelSelectViewController : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let item = levels?[indexPath.row] else {return}
-        guard let destination = storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {return}
-        destination.level = item
-        destination.songId = (interactor as? LevelSelectDataStore)?.songId ?? ""
-        
-        show(destination, sender: self)
+        if indexPath.row != 0{
+            guard let item = levels?[indexPath.row - 1] else {return}
+            guard let destination = storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {return}
+            destination.level = item
+            destination.songId = (interactor as? LevelSelectDataStore)?.songId ?? ""
+            
+            show(destination, sender: self)
+        }
+        else{
+            guard let destination = storyboard?.instantiateViewController(withIdentifier: "LevelCreateViewController") as? LevelCreateViewController else { return }
+            
+            destination.songId = (interactor as? LevelSelectDataStore)?.songId
+            
+            show(destination, sender: self)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return levels?.count ?? 0
+        return (levels?.count ?? 0) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = levels?[indexPath.row] else {return UICollectionViewCell()}
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifiers.LevelSelectCell, for: indexPath) as? LevelSelectCell else {return UICollectionViewCell()}
-        
-        cell.fill(with: item)
-        
-        return cell
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifiers.NewLevelCell, for: indexPath) as? NewLevelCell else { return UICollectionViewCell() }
+            
+            return cell
+        }
+        else {
+            guard let item = levels?[indexPath.row - 1] else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifiers.LevelSelectCell, for: indexPath) as? LevelSelectCell else {return UICollectionViewCell()}
+            
+            cell.fill(with: item)
+            
+            return cell
+        }
     }
 }

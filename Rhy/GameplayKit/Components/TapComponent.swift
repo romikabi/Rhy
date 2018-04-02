@@ -16,12 +16,6 @@ class TapComponent : GKComponent{
         }
     }
     
-    var moveDownComponent: MoveDownComponent?{
-        get{
-            return entity?.component(ofType: MoveDownComponent.self)
-        }
-    }
-    
     var node: SKNode?{
         get{
             return entity?.component(ofType: NodeComponent.self)?.node
@@ -30,6 +24,7 @@ class TapComponent : GKComponent{
     
     init(increaceScore: @escaping (Double)->Void){
         self.increaceScore = increaceScore
+        self.tapped = false
         super.init()
     }
     
@@ -39,20 +34,19 @@ class TapComponent : GKComponent{
         fatalError("init(coder:) has not been implemented")
     }
     
+    var tapped = false
+    
     func tap(){
         if let node = node{
-            if abs(node.position.y) > 100{
+            if node.position.y.abs > 100{
                 return
             }
             
-            increaceScore(Double(abs(node.position.y)) < 25 ? 100 : 50)
+            increaceScore(Double(node.position.y.abs) < 50 ? 100 : 50)
+            tapped = true
             
             if let presence = presenceComponent{
                 presence.popOut(expTime: 0.05, inTime: 0.1)
-            }
-            
-            if let move = moveDownComponent{
-                move.scale = 0
             }
         }
     }

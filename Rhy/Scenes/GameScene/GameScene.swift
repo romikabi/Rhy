@@ -52,7 +52,8 @@ class GameScene: SKScene {
     // Other
     var songId : String?
     private var features: LevelFeatures = LevelFeatures()
-    private let yStart = 1000
+    private let yStart = 10000 //large enough to be out of the screen
+    private var globalSpeed : Double = 500
     private var score: Double = 0{
         didSet{
             scoreLabel?.text = "\(Int(score))"
@@ -69,23 +70,15 @@ class GameScene: SKScene {
     private var maxStreak = 0
     private var level: Level?{
         didSet{
-            if level == nil{
-                return
+            guard let level = level else { return }
+            
+            for node in level.nodes{
+                let en = TapNode(node: createNode(on: node.line), levelNode: node, speed: globalSpeed, increaceScore: increaceScore(score:))
+                self.entities.append(en)
             }
             
-            for e in entities{
-                if let _ = e.component(ofType: NodeSpawnComponent.self){
-                    entities.remove(at: entities.index(of: e)!)
-                    break
-                }
-            }
-            
-            let nodespawner = NodeSpawner(level: level!, target: self, startTime: 0)
-            self.entities.append(nodespawner)
             startTime = CACurrentMediaTime()
             self.musicPlayerManager.beginPlayback(itemID: self.songId!)
-            
-            print("nodespawner added")
         }
     }
     
@@ -162,10 +155,8 @@ class GameScene: SKScene {
         }
         for touch in touches{
             for node in self.nodes(at: touch.location(in: self)){
-                if let entity = node.userData?["entity"] as? GKEntity{
-                    if let tapComp = entity.component(ofType: TapComponent.self){
-                        tapComp.tap()
-                    }
+                if let entity = node.userData?["entity"] as? GKEntity, let tapComp = entity.component(ofType: TapComponent.self){
+                    tapComp.tap()                    
                 }
             }
         }
@@ -212,7 +203,7 @@ class GameScene: SKScene {
         }
         
         // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
+        //let dt = currentTime - self.lastUpdateTime
         
         let time = currentTime
         //        let m = Int(time / 60)
@@ -226,16 +217,12 @@ class GameScene: SKScene {
         }
         // Update entities
         for entity in self.entities {
-            if let _ = entity.component(ofType: NodeSpawnComponent.self){
-                entity.update(deltaTime: currentTime)
-            }
-            else{
-                entity.update(deltaTime: dt)
-            }
-            if let node = entity.component(ofType: NodeComponent.self)?.node{
-                if node.position.y < -300{
+            entity.update(deltaTime: currentTime)
+            
+            if let node = entity.component(ofType: NodeComponent.self)?.node, let tapped = entity.component(ofType: TapComponent.self)?.tapped {
+                if node.position.y < -300, tapped == false {
                     streak = 0
-                    (entity as? TapNode)?.annihilateSelf()
+                    entity.component(ofType: TapComponent.self)?.tapped = true
                 }
             }
         }
@@ -278,7 +265,7 @@ class GameScene: SKScene {
     }
 }
 
-extension GameScene : NodeSpawnTarget{
+extension GameScene {
     func increaceScore(score: Double) {
         self.score += score
         streak+=1
@@ -289,19 +276,8 @@ extension GameScene : NodeSpawnTarget{
             let lineNode = lines[line]
             n.position = CGPoint(x: 0, y: yStart)
             
-            switch line{
-            case 0:
-                n.fillColor = features.colorScheme[0]
-                n.strokeColor = features.colorScheme[0]
-            case 1:
-                n.fillColor = features.colorScheme[1]
-                n.strokeColor = features.colorScheme[1]
-            case 2:
-                n.fillColor = features.colorScheme[2]
-                n.strokeColor = features.colorScheme[2]
-            default:
-                ()
-            }
+            n.setColor(line: line)
+            
             n.alpha = 0
             lineNode.addChild(n)
             return n

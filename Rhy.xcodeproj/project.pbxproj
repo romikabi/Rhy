@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880333B42072BADA00AA3124 /* LevelRefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880333B32072BADA00AA3124 /* LevelRefiner.swift */; };
 		88066FB52052CD710082B804 /* AppleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB42052CD710082B804 /* AppleManager.swift */; };
 		88066FBA2052E1820082B804 /* LevelCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88066FB92052E1820082B804 /* LevelCreateViewController.swift */; };
 		88066FBC2052E6F10082B804 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88066FBB2052E6F10082B804 /* keys.plist */; };
@@ -18,6 +19,11 @@
 		8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8866F04A2052A89D000CE812 /* SongSearchCell.xib */; };
 		8885941B2070E849002450CD /* LevelCreateScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8885941A2070E849002450CD /* LevelCreateScene.sks */; };
 		8885941D2070E860002450CD /* LevelCreateScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885941C2070E860002450CD /* LevelCreateScene.swift */; };
+		8885941F2070FE76002450CD /* VerticalNodePositionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885941E2070FE76002450CD /* VerticalNodePositionComponent.swift */; };
+		8885942320712202002450CD /* CreateNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885942220712202002450CD /* CreateNode.swift */; };
+		888594272071452C002450CD /* NewLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888594252071452C002450CD /* NewLevelCell.swift */; };
+		888594282071452C002450CD /* NewLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888594262071452C002450CD /* NewLevelCell.xib */; };
+		8885942A2071700E002450CD /* Timeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888594292071700E002450CD /* Timeable.swift */; };
 		8897DEE5203F065A00F4672F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEE4203F065A00F4672F /* AppDelegate.swift */; };
 		8897DEE7203F065A00F4672F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8897DEE6203F065A00F4672F /* GameScene.sks */; };
 		8897DEEB203F065A00F4672F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DEEA203F065A00F4672F /* GameScene.swift */; };
@@ -40,9 +46,6 @@
 		8897DF1E2042E0EC00F4672F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF1D2042E0EC00F4672F /* Node.swift */; };
 		8897DF202042E29E00F4672F /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF1F2042E29E00F4672F /* Level.swift */; };
 		88A120A2205122C20071D1D0 /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A120A1205122C20071D1D0 /* NodeComponent.swift */; };
-		88A120A4205125370071D1D0 /* MoveDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A120A3205125370071D1D0 /* MoveDownComponent.swift */; };
-		88A120A6205129F80071D1D0 /* NodeSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A120A5205129F80071D1D0 /* NodeSpawner.swift */; };
-		88A120A820512A9D0071D1D0 /* NodeSpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A120A720512A9D0071D1D0 /* NodeSpawnComponent.swift */; };
 		88C661F420516A3A00F0D112 /* SongSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C661EE20516A3A00F0D112 /* SongSearchPresenter.swift */; };
 		88C661F520516A3A00F0D112 /* SongSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C661EF20516A3A00F0D112 /* SongSearchWorker.swift */; };
 		88C661F620516A3A00F0D112 /* SongSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C661F020516A3A00F0D112 /* SongSearchRouter.swift */; };
@@ -63,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880333B32072BADA00AA3124 /* LevelRefiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRefiner.swift; sourceTree = "<group>"; };
 		88066FB42052CD710082B804 /* AppleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleManager.swift; sourceTree = "<group>"; };
 		88066FB92052E1820082B804 /* LevelCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreateViewController.swift; sourceTree = "<group>"; };
 		88066FBB2052E6F10082B804 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
@@ -74,6 +78,11 @@
 		8866F04A2052A89D000CE812 /* SongSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongSearchCell.xib; sourceTree = "<group>"; };
 		8885941A2070E849002450CD /* LevelCreateScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelCreateScene.sks; sourceTree = "<group>"; };
 		8885941C2070E860002450CD /* LevelCreateScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreateScene.swift; sourceTree = "<group>"; };
+		8885941E2070FE76002450CD /* VerticalNodePositionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalNodePositionComponent.swift; sourceTree = "<group>"; };
+		8885942220712202002450CD /* CreateNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNode.swift; sourceTree = "<group>"; };
+		888594252071452C002450CD /* NewLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLevelCell.swift; sourceTree = "<group>"; };
+		888594262071452C002450CD /* NewLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLevelCell.xib; sourceTree = "<group>"; };
+		888594292071700E002450CD /* Timeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeable.swift; sourceTree = "<group>"; };
 		8897DEE1203F065A00F4672F /* Rhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8897DEE4203F065A00F4672F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8897DEE6203F065A00F4672F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -99,9 +108,6 @@
 		8897DF1D2042E0EC00F4672F /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8897DF1F2042E29E00F4672F /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		88A120A1205122C20071D1D0 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
-		88A120A3205125370071D1D0 /* MoveDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDownComponent.swift; sourceTree = "<group>"; };
-		88A120A5205129F80071D1D0 /* NodeSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSpawner.swift; sourceTree = "<group>"; };
-		88A120A720512A9D0071D1D0 /* NodeSpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSpawnComponent.swift; sourceTree = "<group>"; };
 		88C661EE20516A3A00F0D112 /* SongSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchPresenter.swift; sourceTree = "<group>"; };
 		88C661EF20516A3A00F0D112 /* SongSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchWorker.swift; sourceTree = "<group>"; };
 		88C661F020516A3A00F0D112 /* SongSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchRouter.swift; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 				88066FB92052E1820082B804 /* LevelCreateViewController.swift */,
 				8885941A2070E849002450CD /* LevelCreateScene.sks */,
 				8885941C2070E860002450CD /* LevelCreateScene.swift */,
+				888594292071700E002450CD /* Timeable.swift */,
 			);
 			path = LevelCreateScene;
 			sourceTree = "<group>";
@@ -171,9 +178,8 @@
 			children = (
 				88449DCB2046D2AA0091A904 /* TapComponent.swift */,
 				88A120A1205122C20071D1D0 /* NodeComponent.swift */,
-				88A120A3205125370071D1D0 /* MoveDownComponent.swift */,
-				88A120A720512A9D0071D1D0 /* NodeSpawnComponent.swift */,
 				88084E0D205558CE0047F930 /* PresenceComponent.swift */,
+				8885941E2070FE76002450CD /* VerticalNodePositionComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -182,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				8860E78F205121E60067DFAE /* TapNode.swift */,
-				88A120A5205129F80071D1D0 /* NodeSpawner.swift */,
+				8885942220712202002450CD /* CreateNode.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 		8866F0472052A86C000CE812 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8885942420714503002450CD /* NewLevelCell */,
 				88F60D122066BD48000C8B0A /* LevelSelectCell */,
 				8866F0482052A878000CE812 /* SongSearchCell */,
 			);
@@ -203,6 +210,15 @@
 				8866F04A2052A89D000CE812 /* SongSearchCell.xib */,
 			);
 			path = SongSearchCell;
+			sourceTree = "<group>";
+		};
+		8885942420714503002450CD /* NewLevelCell */ = {
+			isa = PBXGroup;
+			children = (
+				888594252071452C002450CD /* NewLevelCell.swift */,
+				888594262071452C002450CD /* NewLevelCell.xib */,
+			);
+			path = NewLevelCell;
 			sourceTree = "<group>";
 		};
 		8897DED8203F065A00F4672F = {
@@ -290,6 +306,7 @@
 			children = (
 				8897DF1D2042E0EC00F4672F /* Node.swift */,
 				8897DF1F2042E29E00F4672F /* Level.swift */,
+				880333B32072BADA00AA3124 /* LevelRefiner.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -424,6 +441,7 @@
 			files = (
 				88066FBC2052E6F10082B804 /* keys.plist in Resources */,
 				8897DEF0203F065A00F4672F /* Main.storyboard in Resources */,
+				888594282071452C002450CD /* NewLevelCell.xib in Resources */,
 				8897DEE7203F065A00F4672F /* GameScene.sks in Resources */,
 				8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */,
 				88F60D162066BD7A000C8B0A /* LevelSelectCell.xib in Resources */,
@@ -446,33 +464,35 @@
 				88449DC92046AC990091A904 /* Extensions.swift in Sources */,
 				8897DF072042048E00F4672F /* MusicPlayerManager.swift in Sources */,
 				88F60D1B2066F11E000C8B0A /* MainMenuViewController.swift in Sources */,
+				8885942A2071700E002450CD /* Timeable.swift in Sources */,
 				8897DF17204204E000F4672F /* AppleMusicRequestFactory.swift in Sources */,
 				88F60D112066B156000C8B0A /* LevelDataManager.swift in Sources */,
 				8897DF0C2042048E00F4672F /* AuthorizationManager.swift in Sources */,
 				88F60D0C2066AE7B000C8B0A /* LevelSelectRouter.swift in Sources */,
 				88F60D0B2066AE7B000C8B0A /* LevelSelectWorker.swift in Sources */,
 				88F60D0F2066AE7B000C8B0A /* LevelSelectInteractor.swift in Sources */,
-				88A120A820512A9D0071D1D0 /* NodeSpawnComponent.swift in Sources */,
 				88066FBA2052E1820082B804 /* LevelCreateViewController.swift in Sources */,
+				8885942320712202002450CD /* CreateNode.swift in Sources */,
 				88C661F720516A3A00F0D112 /* SongSearchModels.swift in Sources */,
 				88F60D0D2066AE7B000C8B0A /* LevelSelectModels.swift in Sources */,
 				88C661F620516A3A00F0D112 /* SongSearchRouter.swift in Sources */,
+				888594272071452C002450CD /* NewLevelCell.swift in Sources */,
 				8897DEEB203F065A00F4672F /* GameScene.swift in Sources */,
 				88F60D182066C3C5000C8B0A /* ReuseIdentifiers.swift in Sources */,
 				8897DF082042048E00F4672F /* ImageCacheManager.swift in Sources */,
 				88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */,
 				8897DF1E2042E0EC00F4672F /* Node.swift in Sources */,
-				88A120A4205125370071D1D0 /* MoveDownComponent.swift in Sources */,
 				8885941D2070E860002450CD /* LevelCreateScene.swift in Sources */,
 				88C661F820516A3A00F0D112 /* SongSearchViewController.swift in Sources */,
+				880333B42072BADA00AA3124 /* LevelRefiner.swift in Sources */,
 				88A120A2205122C20071D1D0 /* NodeComponent.swift in Sources */,
 				8897DF14204204E000F4672F /* SerializationError.swift in Sources */,
 				8897DF0B2042048E00F4672F /* MediaLibraryManager.swift in Sources */,
 				8897DEED203F065A00F4672F /* GameViewController.swift in Sources */,
+				8885941F2070FE76002450CD /* VerticalNodePositionComponent.swift in Sources */,
 				8897DF0A2042048E00F4672F /* AppleMusicManager.swift in Sources */,
 				8897DEE5203F065A00F4672F /* AppDelegate.swift in Sources */,
 				88066FB52052CD710082B804 /* AppleManager.swift in Sources */,
-				88A120A6205129F80071D1D0 /* NodeSpawner.swift in Sources */,
 				88F60D0A2066AE7B000C8B0A /* LevelSelectPresenter.swift in Sources */,
 				88C661F520516A3A00F0D112 /* SongSearchWorker.swift in Sources */,
 				8897DF16204204E000F4672F /* Artwork.swift in Sources */,

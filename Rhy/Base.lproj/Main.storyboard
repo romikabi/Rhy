@@ -51,7 +51,7 @@
                                 <connections>
                                     <action selector="buttonDown:" destination="vs8-20-qA7" eventType="touchDown" id="he6-2W-V1y"/>
                                     <action selector="buttonUp:" destination="vs8-20-qA7" eventType="touchUpInside" id="cP2-CO-mGY"/>
-                                    <segue destination="3C8-9I-kf0" kind="show" id="CG8-7N-kQQ"/>
+                                    <segue destination="Zc7-TB-gf9" kind="show" id="SWb-z6-8dU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fZm-jt-3OY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" name="dark"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wY5-uk-OjS">
                                     <size key="itemSize" width="0.0" height="0.0"/>
@@ -128,11 +128,11 @@
             <objects>
                 <viewController storyboardIdentifier="LevelSelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jny-XL-UaU" customClass="LevelSelectViewController" customModule="Rhy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mbq-kb-Oi4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TvC-LN-oxb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" name="dark"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Tar-rm-b9f">
                                     <size key="itemSize" width="0.0" height="0.0"/>
@@ -159,6 +159,7 @@
                     <connections>
                         <outlet property="collectionView" destination="TvC-LN-oxb" id="ioL-Zo-Q1h"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="Game" id="eKy-wv-O5J"/>
+                        <segue destination="3C8-9I-kf0" kind="show" identifier="LevelCreate" id="28j-wT-TTI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Le6-fd-tec" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,13 +169,16 @@
         <!--Level Create View Controller-->
         <scene sceneID="QZD-ne-qgK">
             <objects>
-                <viewController id="3C8-9I-kf0" customClass="LevelCreateViewController" customModule="Rhy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LevelCreateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3C8-9I-kf0" customClass="LevelCreateViewController" customModule="Rhy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aa0-ci-3JC" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="d86-rd-63j"/>
                     </view>
+                    <connections>
+                        <segue destination="KT0-T9-qku" kind="show" identifier="goToInitial" id="jLt-Pc-aY9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQr-OY-uS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +189,7 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="Rhy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -232,4 +236,7 @@
             <color red="0.11400000005960464" green="0.12200000137090683" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jLt-Pc-aY9"/>
+    </inferredMetricsTieBreakers>
 </document>

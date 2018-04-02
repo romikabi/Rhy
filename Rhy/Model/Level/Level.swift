@@ -15,8 +15,17 @@ class Level : Codable{
     var nodes: [Node]{
         didSet{
             nodes.sort { $0.time < $1.time }
+            length = (nodes.last?.time ?? 0) + 1000
         }
     }
     var songId: String
     var author: String?
+    
+    init(title: String, lines: Int, songId: String){
+        self.title = title
+        self.lines = lines
+        self.songId = songId
+        self.length = 0
+        self.nodes = []
+    }
 }

@@ -11,4 +11,5 @@ import Foundation
 struct ReuseIdentifiers{
     static let LevelSelectCell = "LevelSelectCell"
     static let SongSearchCell = "SongSearchCell"
+    static let NewLevelCell = "NewLevelCell"
 }
