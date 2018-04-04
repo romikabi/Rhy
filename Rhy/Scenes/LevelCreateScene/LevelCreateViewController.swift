@@ -13,6 +13,9 @@ import SpriteKit
 class LevelCreateViewController: UIViewController {
     
     var songId: String?
+    var levelName: String?
+    var lineAmount: Int?
+    var speed: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +36,7 @@ class LevelCreateViewController: UIViewController {
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
                 
-                sceneNode.initiate(song: songId!, lineAmount: 3)
+                sceneNode.initiate(song: songId!, lineAmount: lineAmount ?? 3, levelName: levelName ?? "level", speed: speed ?? 500)
                 
                 // Present the scene
                 if let view = self.view as! SKView? {

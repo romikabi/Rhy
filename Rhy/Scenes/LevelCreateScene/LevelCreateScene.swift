@@ -72,11 +72,11 @@ class LevelCreateScene: SKScene {
         }
     }
     
-    func initiate(song id: String, lineAmount: Int = 3){
+    func initiate(song id: String, lineAmount: Int, levelName: String, speed: Int){
         songId = id
-        
+        globalSpeed = speed.double
         createLines(lineAmount: lineAmount)
-        self.level = initiateLevel(title: "title", lines: lineAmount, songId: id)
+        self.level = initiateLevel(title: levelName, lines: lineAmount, songId: id)
         
         musicPlayerManager.beginPlayback(itemID: id)    
     }

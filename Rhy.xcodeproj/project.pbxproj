@@ -14,6 +14,15 @@
 		88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88084E0D205558CE0047F930 /* PresenceComponent.swift */; };
 		88449DC92046AC990091A904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DC82046AC990091A904 /* Extensions.swift */; };
 		88449DCC2046D2AA0091A904 /* TapComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DCB2046D2AA0091A904 /* TapComponent.swift */; };
+		88504323207384A800D65E81 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88504322207384A800D65E81 /* CustomTextField.swift */; };
+		8850432520738FD500D65E81 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432420738FD500D65E81 /* CustomButton.swift */; };
+		885043272073927200D65E81 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885043262073927200D65E81 /* CustomImageView.swift */; };
+		8850432F207395B600D65E81 /* PreLevelCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88504329207395B600D65E81 /* PreLevelCreatePresenter.swift */; };
+		88504330207395B600D65E81 /* PreLevelCreateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432A207395B600D65E81 /* PreLevelCreateWorker.swift */; };
+		88504331207395B600D65E81 /* PreLevelCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432B207395B600D65E81 /* PreLevelCreateRouter.swift */; };
+		88504332207395B600D65E81 /* PreLevelCreateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432C207395B600D65E81 /* PreLevelCreateModels.swift */; };
+		88504333207395B600D65E81 /* PreLevelCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432D207395B600D65E81 /* PreLevelCreateViewController.swift */; };
+		88504334207395B600D65E81 /* PreLevelCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432E207395B600D65E81 /* PreLevelCreateInteractor.swift */; };
 		8860E790205121E60067DFAE /* TapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860E78F205121E60067DFAE /* TapNode.swift */; };
 		8866F04B2052A89D000CE812 /* SongSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8866F0492052A89D000CE812 /* SongSearchCell.swift */; };
 		8866F04C2052A89D000CE812 /* SongSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8866F04A2052A89D000CE812 /* SongSearchCell.xib */; };
@@ -73,6 +82,15 @@
 		88084E0D205558CE0047F930 /* PresenceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceComponent.swift; sourceTree = "<group>"; };
 		88449DC82046AC990091A904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88449DCB2046D2AA0091A904 /* TapComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapComponent.swift; sourceTree = "<group>"; };
+		88504322207384A800D65E81 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		8850432420738FD500D65E81 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		885043262073927200D65E81 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		88504329207395B600D65E81 /* PreLevelCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreatePresenter.swift; sourceTree = "<group>"; };
+		8850432A207395B600D65E81 /* PreLevelCreateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreateWorker.swift; sourceTree = "<group>"; };
+		8850432B207395B600D65E81 /* PreLevelCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreateRouter.swift; sourceTree = "<group>"; };
+		8850432C207395B600D65E81 /* PreLevelCreateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreateModels.swift; sourceTree = "<group>"; };
+		8850432D207395B600D65E81 /* PreLevelCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreateViewController.swift; sourceTree = "<group>"; };
+		8850432E207395B600D65E81 /* PreLevelCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLevelCreateInteractor.swift; sourceTree = "<group>"; };
 		8860E78F205121E60067DFAE /* TapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNode.swift; sourceTree = "<group>"; };
 		8866F0492052A89D000CE812 /* SongSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchCell.swift; sourceTree = "<group>"; };
 		8866F04A2052A89D000CE812 /* SongSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongSearchCell.xib; sourceTree = "<group>"; };
@@ -193,9 +211,33 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		885043212073848700D65E81 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				88504322207384A800D65E81 /* CustomTextField.swift */,
+				8850432420738FD500D65E81 /* CustomButton.swift */,
+				885043262073927200D65E81 /* CustomImageView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		88504328207395A300D65E81 /* PreLevelCreate */ = {
+			isa = PBXGroup;
+			children = (
+				88504329207395B600D65E81 /* PreLevelCreatePresenter.swift */,
+				8850432A207395B600D65E81 /* PreLevelCreateWorker.swift */,
+				8850432B207395B600D65E81 /* PreLevelCreateRouter.swift */,
+				8850432C207395B600D65E81 /* PreLevelCreateModels.swift */,
+				8850432D207395B600D65E81 /* PreLevelCreateViewController.swift */,
+				8850432E207395B600D65E81 /* PreLevelCreateInteractor.swift */,
+			);
+			path = PreLevelCreate;
+			sourceTree = "<group>";
+		};
 		8866F0472052A86C000CE812 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				885043212073848700D65E81 /* Controls */,
 				8885942420714503002450CD /* NewLevelCell */,
 				88F60D122066BD48000C8B0A /* LevelSelectCell */,
 				8866F0482052A878000CE812 /* SongSearchCell */,
@@ -324,6 +366,7 @@
 		88C661EC205169FF00F0D112 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				88504328207395A300D65E81 /* PreLevelCreate */,
 				88F60D192066F102000C8B0A /* MainMenu */,
 				88066FB82052E10D0082B804 /* LevelCreateScene */,
 				88066FB72052E0F90082B804 /* GameScene */,
@@ -459,11 +502,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C661F920516A3A00F0D112 /* SongSearchInteractor.swift in Sources */,
+				88504330207395B600D65E81 /* PreLevelCreateWorker.swift in Sources */,
 				8897DF092042048E00F4672F /* AuthorizationDataSource.swift in Sources */,
 				88C661F420516A3A00F0D112 /* SongSearchPresenter.swift in Sources */,
 				88449DC92046AC990091A904 /* Extensions.swift in Sources */,
 				8897DF072042048E00F4672F /* MusicPlayerManager.swift in Sources */,
+				8850432F207395B600D65E81 /* PreLevelCreatePresenter.swift in Sources */,
 				88F60D1B2066F11E000C8B0A /* MainMenuViewController.swift in Sources */,
+				88504332207395B600D65E81 /* PreLevelCreateModels.swift in Sources */,
 				8885942A2071700E002450CD /* Timeable.swift in Sources */,
 				8897DF17204204E000F4672F /* AppleMusicRequestFactory.swift in Sources */,
 				88F60D112066B156000C8B0A /* LevelDataManager.swift in Sources */,
@@ -477,13 +523,16 @@
 				88F60D0D2066AE7B000C8B0A /* LevelSelectModels.swift in Sources */,
 				88C661F620516A3A00F0D112 /* SongSearchRouter.swift in Sources */,
 				888594272071452C002450CD /* NewLevelCell.swift in Sources */,
+				88504334207395B600D65E81 /* PreLevelCreateInteractor.swift in Sources */,
 				8897DEEB203F065A00F4672F /* GameScene.swift in Sources */,
+				8850432520738FD500D65E81 /* CustomButton.swift in Sources */,
 				88F60D182066C3C5000C8B0A /* ReuseIdentifiers.swift in Sources */,
 				8897DF082042048E00F4672F /* ImageCacheManager.swift in Sources */,
 				88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */,
 				8897DF1E2042E0EC00F4672F /* Node.swift in Sources */,
 				8885941D2070E860002450CD /* LevelCreateScene.swift in Sources */,
 				88C661F820516A3A00F0D112 /* SongSearchViewController.swift in Sources */,
+				88504331207395B600D65E81 /* PreLevelCreateRouter.swift in Sources */,
 				880333B42072BADA00AA3124 /* LevelRefiner.swift in Sources */,
 				88A120A2205122C20071D1D0 /* NodeComponent.swift in Sources */,
 				8897DF14204204E000F4672F /* SerializationError.swift in Sources */,
@@ -491,13 +540,16 @@
 				8897DEED203F065A00F4672F /* GameViewController.swift in Sources */,
 				8885941F2070FE76002450CD /* VerticalNodePositionComponent.swift in Sources */,
 				8897DF0A2042048E00F4672F /* AppleMusicManager.swift in Sources */,
+				88504323207384A800D65E81 /* CustomTextField.swift in Sources */,
 				8897DEE5203F065A00F4672F /* AppDelegate.swift in Sources */,
 				88066FB52052CD710082B804 /* AppleManager.swift in Sources */,
 				88F60D0A2066AE7B000C8B0A /* LevelSelectPresenter.swift in Sources */,
+				885043272073927200D65E81 /* CustomImageView.swift in Sources */,
 				88C661F520516A3A00F0D112 /* SongSearchWorker.swift in Sources */,
 				8897DF16204204E000F4672F /* Artwork.swift in Sources */,
 				88449DCC2046D2AA0091A904 /* TapComponent.swift in Sources */,
 				8897DF15204204E000F4672F /* MediaItem.swift in Sources */,
+				88504333207395B600D65E81 /* PreLevelCreateViewController.swift in Sources */,
 				88F60D0E2066AE7B000C8B0A /* LevelSelectViewController.swift in Sources */,
 				8897DF202042E29E00F4672F /* Level.swift in Sources */,
 				8897DF18204204E000F4672F /* JSONKeys.swift in Sources */,

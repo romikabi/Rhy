@@ -159,12 +159,137 @@
                     <connections>
                         <outlet property="collectionView" destination="TvC-LN-oxb" id="ioL-Zo-Q1h"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="Game" id="eKy-wv-O5J"/>
-                        <segue destination="3C8-9I-kf0" kind="show" identifier="LevelCreate" id="28j-wT-TTI"/>
+                        <segue destination="ZZK-ck-ahk" kind="show" identifier="PreLevelCreate" id="Ueb-eq-7GK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Le6-fd-tec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-708" y="338"/>
+        </scene>
+        <!--Pre Level Create View Controller-->
+        <scene sceneID="0xo-s1-PLg">
+            <objects>
+                <viewController storyboardIdentifier="PreLevelCreateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZZK-ck-ahk" customClass="PreLevelCreateViewController" customModule="Rhy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cZ3-6f-Jgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Level name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Zh-cj-Sno" customClass="CustomTextField" customModule="Rhy" customModuleProvider="target">
+                                <rect key="frame" x="16" y="16" width="343" height="28"/>
+                                <color key="textColor" name="white"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
+                                        <color key="value" red="0.84700000289999999" green="0.84700000289999999" blue="0.84700000289999999" alpha="0.2031785102739726" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="pXO-BY-F2E">
+                                <rect key="frame" x="265" y="108" width="94" height="29"/>
+                                <color key="tintColor" name="white"/>
+                                <connections>
+                                    <action selector="lineChanged:" destination="ZZK-ck-ahk" eventType="valueChanged" id="VdO-Y9-OqZ"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minimumValue="250" maximumValue="1000" stepValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="8RR-1I-s6w">
+                                <rect key="frame" x="265" y="200" width="94" height="29"/>
+                                <color key="tintColor" name="white"/>
+                                <connections>
+                                    <action selector="speedChanged:" destination="ZZK-ck-ahk" eventType="valueChanged" id="vS5-Iw-suZ"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-fA-De9">
+                                <rect key="frame" x="16" y="108" width="57" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkx-1I-Olw">
+                                <rect key="frame" x="16" y="200" width="70" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiK-j2-pM9">
+                                <rect key="frame" x="136" y="108" width="14" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcI-0c-6ww">
+                                <rect key="frame" x="136" y="200" width="41" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwf-hN-4hX" customClass="CustomButton" customModule="Rhy" customModuleProvider="target">
+                                <rect key="frame" x="96" y="292" width="183" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="tintColor" name="white"/>
+                                <state key="normal" title="Create"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleRightPadding">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableGradientBackground" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                        <color key="value" red="0.62352943419999995" green="0.62352943419999995" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                        <color key="value" red="0.92549019610000005" green="0.83137254900000002" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="white"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createPressed:" destination="ZZK-ck-ahk" eventType="touchUpInside" id="gBA-TK-HtY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="dark"/>
+                        <constraints>
+                            <constraint firstItem="XBW-fA-De9" firstAttribute="leading" secondItem="9bb-GG-Wip" secondAttribute="leading" constant="16" id="19G-az-8fB"/>
+                            <constraint firstItem="XBW-fA-De9" firstAttribute="top" secondItem="4Zh-cj-Sno" secondAttribute="bottom" constant="64" id="41W-B0-fuI"/>
+                            <constraint firstItem="4Zh-cj-Sno" firstAttribute="leading" secondItem="9bb-GG-Wip" secondAttribute="leading" constant="16" id="4Sa-2I-Om4"/>
+                            <constraint firstItem="OiK-j2-pM9" firstAttribute="leading" secondItem="XBW-fA-De9" secondAttribute="leading" constant="120" id="5YA-S7-4lj"/>
+                            <constraint firstItem="zkx-1I-Olw" firstAttribute="top" secondItem="FcI-0c-6ww" secondAttribute="top" id="Atn-oX-kX8"/>
+                            <constraint firstItem="9bb-GG-Wip" firstAttribute="trailing" secondItem="hwf-hN-4hX" secondAttribute="trailing" constant="96" id="BBa-Y9-hrQ"/>
+                            <constraint firstItem="hwf-hN-4hX" firstAttribute="top" secondItem="zkx-1I-Olw" secondAttribute="bottom" constant="64" id="G77-Ga-tZf"/>
+                            <constraint firstItem="zkx-1I-Olw" firstAttribute="leading" secondItem="XBW-fA-De9" secondAttribute="leading" id="HmS-Lb-AOW"/>
+                            <constraint firstItem="zkx-1I-Olw" firstAttribute="top" secondItem="XBW-fA-De9" secondAttribute="bottom" constant="64" id="IN9-wM-HRy"/>
+                            <constraint firstItem="8RR-1I-s6w" firstAttribute="trailing" secondItem="pXO-BY-F2E" secondAttribute="trailing" id="IjQ-wY-1r7"/>
+                            <constraint firstItem="pXO-BY-F2E" firstAttribute="top" secondItem="XBW-fA-De9" secondAttribute="top" id="VwY-dV-kBU"/>
+                            <constraint firstItem="FcI-0c-6ww" firstAttribute="leading" secondItem="OiK-j2-pM9" secondAttribute="leading" id="WA2-br-bQt"/>
+                            <constraint firstItem="9bb-GG-Wip" firstAttribute="trailing" secondItem="pXO-BY-F2E" secondAttribute="trailing" constant="16" id="Zs9-Ok-5WA"/>
+                            <constraint firstItem="OiK-j2-pM9" firstAttribute="top" secondItem="XBW-fA-De9" secondAttribute="top" id="fcP-8u-9Oh"/>
+                            <constraint firstItem="9bb-GG-Wip" firstAttribute="trailing" secondItem="4Zh-cj-Sno" secondAttribute="trailing" constant="16" id="kOv-oV-sJK"/>
+                            <constraint firstItem="8RR-1I-s6w" firstAttribute="top" secondItem="FcI-0c-6ww" secondAttribute="top" id="nYV-Rp-1wH"/>
+                            <constraint firstItem="4Zh-cj-Sno" firstAttribute="top" secondItem="9bb-GG-Wip" secondAttribute="top" constant="16" id="q9B-SP-c4j"/>
+                            <constraint firstItem="hwf-hN-4hX" firstAttribute="leading" secondItem="9bb-GG-Wip" secondAttribute="leading" constant="96" id="r01-a4-mWU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9bb-GG-Wip"/>
+                    </view>
+                    <connections>
+                        <outlet property="levelName" destination="4Zh-cj-Sno" id="3w3-GQ-Xtl"/>
+                        <outlet property="lineAmountLabel" destination="OiK-j2-pM9" id="cJR-I3-Mub"/>
+                        <outlet property="speedLabel" destination="FcI-0c-6ww" id="YAc-v4-9i4"/>
+                        <segue destination="3C8-9I-kf0" kind="show" identifier="LevelCreateScene" id="Ovm-sg-xbU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfz-2s-76E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="-437.63118440779613"/>
         </scene>
         <!--Level Create View Controller-->
         <scene sceneID="QZD-ne-qgK">
@@ -182,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQr-OY-uS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="-437"/>
+            <point key="canvasLocation" x="1206" y="-438"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -234,6 +359,9 @@
         <image name="menuplay" width="118" height="118"/>
         <namedColor name="dark">
             <color red="0.11400000005960464" green="0.12200000137090683" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="0.84700000289999999" green="0.84700000289999999" blue="0.84700000289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

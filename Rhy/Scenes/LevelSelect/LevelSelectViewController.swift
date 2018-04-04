@@ -114,11 +114,7 @@ extension LevelSelectViewController : UICollectionViewDelegate, UICollectionView
             show(destination, sender: self)
         }
         else{
-            guard let destination = storyboard?.instantiateViewController(withIdentifier: "LevelCreateViewController") as? LevelCreateViewController else { return }
-            
-            destination.songId = (interactor as? LevelSelectDataStore)?.songId
-            
-            show(destination, sender: self)
+            router?.routeToPreLevelCreate(segue: nil)
         }
     }
     

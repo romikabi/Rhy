@@ -14,43 +14,43 @@ import UIKit
 
 @objc protocol LevelSelectRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToPreLevelCreate(segue: UIStoryboardSegue?)
 }
 
 protocol LevelSelectDataPassing
 {
-  var dataStore: LevelSelectDataStore? { get }
+    var dataStore: LevelSelectDataStore? { get }
 }
 
 class LevelSelectRouter: NSObject, LevelSelectRoutingLogic, LevelSelectDataPassing
 {
-  weak var viewController: LevelSelectViewController?
-  var dataStore: LevelSelectDataStore?
-  
-  // MARK: Routing
-  
-//  func routeToSomewhere(segue: UIStoryboardSegue?)
-//  {
-//    if let segue = segue {
-//      let destinationVC = segue.destination as! GameViewController
-//      var destinationDS = destinationVC.router!.dataStore!
-//      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//    } else {
-//      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//      let destinationVC = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-//      var destinationDS = destinationVC.router!.dataStore!
-//      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//      navigateToSomewhere(source: viewController!, destination: destinationVC)
-//    }
-//  }
-//  
-//  func navigateToSomewhere(source: LevelSelectViewController, destination: GameViewController)
-//  {
-//    source.show(destination, sender: nil)
-//  }
-//  
-//  func passDataToSomewhere(source: LevelSelectDataStore, destination: inout SomewhereDataStore)
-//  {
-//    destination.name = source.name
-//  }
+    weak var viewController: LevelSelectViewController?
+    var dataStore: LevelSelectDataStore?
+    
+    // MARK: Routing
+    
+    func routeToPreLevelCreate(segue: UIStoryboardSegue?)
+    {
+        if let segue = segue {
+            let destinationVC = segue.destination as! PreLevelCreateViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToPreLevelCreate(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "PreLevelCreateViewController") as! PreLevelCreateViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToPreLevelCreate(source: dataStore!, destination: &destinationDS)
+            navigateToPreLevelCreate(source: viewController!, destination: destinationVC)
+        }
+    }
+    
+    func navigateToPreLevelCreate(source: LevelSelectViewController, destination: PreLevelCreateViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    
+    func passDataToPreLevelCreate(source: LevelSelectDataStore, destination: inout PreLevelCreateDataStore)
+    {
+        destination.songId = source.songId
+    }
 }
