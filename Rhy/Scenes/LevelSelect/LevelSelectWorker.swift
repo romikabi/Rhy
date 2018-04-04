@@ -14,8 +14,9 @@ import UIKit
 
 class LevelSelectWorker
 {
-    func loadLevels(for id: String, onSuccess: ([Level])->Void)
+    private var dataManager: DataManager = ParseDataManager()
+    func loadLevels(for id: String, onSuccess: @escaping ([Level])->Void)
     {
-        onSuccess(LevelDataManager.loadLevels(for: id))
+        dataManager.loadLevels(for: id, onSuccess: onSuccess)
     }
 }

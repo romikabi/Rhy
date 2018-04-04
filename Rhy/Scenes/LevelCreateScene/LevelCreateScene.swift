@@ -39,11 +39,13 @@ class LevelCreateScene: SKScene {
     private let blurName = "blur"
     private let closeName = "close"
     private let refineName = "refine"
+    private let saveName = "save"
     
     private var songId : String?
     private var musicPlayerManager = MusicPlayerManager()
     private var level: Level?
     private var globalSpeed : Double = 600
+    private var dataManager: DataManager = ParseDataManager()
     
     private var playing : Bool{
         get{
@@ -90,15 +92,14 @@ class LevelCreateScene: SKScene {
             entity.addComponent(VerticalNodePositionComponent(timeable: timeable, speed: globalSpeed))
             if let node = genericLine?.copy() as? SKSpriteNode{
                 node.alpha = 0.5
-                horizontal?.addChild(node)
-                entity.addComponent(NodeComponent(with: node))
+                entity.addComponent(NodeComponent(with: node, in: horizontal!))
                 entities.append(entity)
                 lineTime+=1
             }
         }
     }
     
-    func initiateLevel(title: String, lines: Int, songId: String, author: String? = nil)->Level{
+    func initiateLevel(title: String, lines: Int, songId: String, author: String = "")->Level{
         let level = Level(title: title, lines: lines, songId: songId)
         level.author = author
         return level
@@ -250,6 +251,12 @@ class LevelCreateScene: SKScene {
                         
                         LevelRefiner.stabilizeNodes(level: level)
                     }
+
+                case saveName:
+                    if let level = level, let songId = songId {
+                        dataManager.save(level: level, for: songId)
+                        viewController?.performSegue(withIdentifier: "goToInitial", sender: viewController)
+                    }
                     
                 default:
                     ()
@@ -273,12 +280,11 @@ class LevelCreateScene: SKScene {
             print(time)
             
             let levelNode = Node(line: line, time: time)
-            let entity = CreateNode(node: node, levelNode: levelNode, speed: globalSpeed)
+            let entity = CreateNode(node: node, parent: lines[line], levelNode: levelNode, speed: globalSpeed)
             
             level?.nodes.append(levelNode)
             
             entities.append(entity)
-            lines[line].addChild(node)
         }
     }
     

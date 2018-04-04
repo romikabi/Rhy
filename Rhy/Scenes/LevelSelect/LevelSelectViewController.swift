@@ -23,6 +23,7 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
     var router: (NSObjectProtocol & LevelSelectRoutingLogic & LevelSelectDataPassing)?
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -80,6 +81,8 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
             flow.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - (8*2), height: 100)
         }
         
+        activityIndicator.hidesWhenStopped = true
+        
         registerNibs()
         requestLevels()
     }
@@ -90,6 +93,7 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
     
     func requestLevels()
     {
+        activityIndicator.startAnimating()
         let request = LevelSelect.Something.Request()
         interactor?.loadLevels(request: request)
     }
@@ -98,6 +102,7 @@ class LevelSelectViewController: UIViewController, LevelSelectDisplayLogic
     
     func displayLevels(viewModel: LevelSelect.Something.ViewModel)
     {
+        activityIndicator.stopAnimating()
         levels = viewModel.levels
         collectionView.reloadData()
     }

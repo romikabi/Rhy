@@ -73,7 +73,7 @@ class GameScene: SKScene {
             guard let level = level else { return }
             
             for node in level.nodes{
-                let en = TapNode(node: createNode(on: node.line), levelNode: node, speed: globalSpeed, increaceScore: increaceScore(score:))
+                let en = TapNode(node: createNode(on: node.line), parent: lines[node.line], levelNode: node, speed: globalSpeed, increaceScore: increaceScore(score:))
                 self.entities.append(en)
             }
             
@@ -273,13 +273,11 @@ extension GameScene {
     
     func createNode(on line: Int) -> SKNode {
         if let n = genericNode?.copy() as? SKShapeNode{
-            let lineNode = lines[line]
             n.position = CGPoint(x: 0, y: yStart)
             
             n.setColor(line: line)
             
             n.alpha = 0
-            lineNode.addChild(n)
             return n
         }
         return SKNode()

@@ -10,11 +10,11 @@ import UIKit
 import GameplayKit
 
 class CreateNode: GKEntity {
-    init(node: SKNode, levelNode: Node, speed: Double){
+    init(node: SKNode, parent: SKNode, levelNode: Node, speed: Double){
         super.init()
         
         let components : [GKComponent] = [
-            NodeComponent(with: node),
+            NodeComponent(with: node, in: parent),
             //PresenceComponent(),
             VerticalNodePositionComponent(timeable: levelNode, speed: speed)
         ]

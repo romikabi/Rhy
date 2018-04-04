@@ -10,11 +10,11 @@ import Foundation
 import GameplayKit
 
 class TapNode : GKEntity {
-    init(node: SKNode, levelNode: Node, speed: Double, increaceScore: @escaping (Double)->Void){
+    init(node: SKNode, parent: SKNode, levelNode: Node, speed: Double, increaceScore: @escaping (Double)->Void){
         
         super.init()
         
-        let nodeComponent = NodeComponent(with: node)
+        let nodeComponent = NodeComponent(with: node, in: parent)
         addComponent(nodeComponent)
         
         let vc = VerticalNodePositionComponent(timeable: levelNode, speed: speed, shouldSlowDownAroundZero: true)

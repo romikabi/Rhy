@@ -20,6 +20,9 @@ protocol SongSearchDisplayLogic: class
 
 class SongSearchViewController: UIViewController
 {
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var interactor: SongSearchBusinessLogic?
     var router: (NSObjectProtocol & SongSearchRoutingLogic & SongSearchDataPassing)?
@@ -97,6 +100,7 @@ class SongSearchViewController: UIViewController
         
         initSearchController()
         registerNibs()
+        activityIndicator.hidesWhenStopped = true
         self.view.backgroundColor = UIColor.dark
         recent()
     }
@@ -107,11 +111,13 @@ class SongSearchViewController: UIViewController
     
     func search(query: String)
     {
+        activityIndicator.startAnimating()
         let request = SongSearch.Search.Request(query: query)
         interactor?.search(request: request)
     }
     
     func recent(){
+        activityIndicator.startAnimating()
         let request = SongSearch.Recent.Request()
         interactor?.recent(request: request)
     }
@@ -128,11 +134,13 @@ class SongSearchViewController: UIViewController
 
 extension SongSearchViewController : SongSearchDisplayLogic{
     func displayRecent(viewModel: SongSearch.Recent.ViewModel) {
+        activityIndicator.stopAnimating()
         self.items = viewModel.items
     }
     
     func displaySearchResults(viewModel: SongSearch.Search.ViewModel)
     {
+        activityIndicator.stopAnimating()
         self.items = viewModel.items
     }
 }

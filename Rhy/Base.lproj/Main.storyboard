@@ -95,6 +95,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="sR9-Ko-CnH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" name="white"/>
+                                </activityIndicatorView>
                                 <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="Zc7-TB-gf9" id="mNG-dq-dVQ"/>
@@ -115,6 +120,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="sR9-Ko-CnH" id="711-Lf-OqF"/>
                         <outlet property="collectionView" destination="fZm-jt-3OY" id="VGY-6C-1ZY"/>
                         <segue destination="Jny-XL-UaU" kind="show" id="2YP-Mu-OzB"/>
                     </connections>
@@ -140,6 +146,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="dfn-iF-nxm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" name="white"/>
+                                </activityIndicatorView>
                                 <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="Jny-XL-UaU" id="FKT-Lt-6mn"/>
@@ -157,6 +168,7 @@
                         <viewLayoutGuide key="safeArea" id="v9G-FB-2kj"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dfn-iF-nxm" id="oN4-0s-eLH"/>
                         <outlet property="collectionView" destination="TvC-LN-oxb" id="ioL-Zo-Q1h"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="Game" id="eKy-wv-O5J"/>
                         <segue destination="ZZK-ck-ahk" kind="show" identifier="PreLevelCreate" id="Ueb-eq-7GK"/>
@@ -362,6 +374,9 @@
         </namedColor>
         <namedColor name="white">
             <color red="0.84700000289999999" green="0.84700000289999999" blue="0.84700000289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="0.84700000286102295" green="0.84700000286102295" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

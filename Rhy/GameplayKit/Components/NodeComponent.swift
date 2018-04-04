@@ -11,9 +11,14 @@ import GameplayKit
 
 class NodeComponent : GKComponent {
     var node : SKNode
+    var parent: SKNode
+    var inParent: Bool
     
-    init(with node: SKNode){
+    init(with node: SKNode, in parent: SKNode){
         self.node = node
+        self.parent = parent
+        node.removeFromParent()
+        inParent = false
         super.init()
     }
     

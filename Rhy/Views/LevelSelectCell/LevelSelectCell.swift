@@ -29,8 +29,8 @@ class LevelSelectCell: UICollectionViewCell {
     func fill(with level: Level){
         titleLabel.text = level.title
         authorLabel.text = level.author
-        setRating(rating: 0.6)
-        setStarred(true)
+        setRating(rating: CGFloat(level.rating/100))
+        setStarred(level.star)
         let nps = (Double(level.nodes.count) / Double((level.length/1000)))
         infoLabel.text = "\(String(format: "%.2f", nps)) nodes per second"
     }
@@ -41,10 +41,10 @@ class LevelSelectCell: UICollectionViewCell {
     
     func setStarred(_ starred: Bool){
         if starred{
-            starButton.imageView?.image = #imageLiteral(resourceName: "star-filled")
+            starButton.setImage(#imageLiteral(resourceName: "star-filled"), for: .normal)
         }
         else{
-            starButton.imageView?.image = #imageLiteral(resourceName: "star")
+            starButton.setImage(#imageLiteral(resourceName: "star"), for: .normal)
         }
     }
 }

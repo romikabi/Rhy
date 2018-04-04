@@ -44,7 +44,7 @@ class LevelSelectInteractor: LevelSelectBusinessLogic, LevelSelectDataStore
         if let id = songId{
             worker?.loadLevels(for: id, onSuccess: { (levels) in
                 let response = LevelSelect.Something.Response(levels: levels)
-                presenter?.presentLevels(response: response)
+                self.presenter?.presentLevels(response: response)
             })        
         }
     }

@@ -14,6 +14,10 @@
 		88084E0E205558CE0047F930 /* PresenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88084E0D205558CE0047F930 /* PresenceComponent.swift */; };
 		88449DC92046AC990091A904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DC82046AC990091A904 /* Extensions.swift */; };
 		88449DCC2046D2AA0091A904 /* TapComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88449DCB2046D2AA0091A904 /* TapComponent.swift */; };
+		884D9EFA2074E06A0066E5DA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884D9EF82074E06A0066E5DA /* Bolts.framework */; };
+		884D9EFB2074E06A0066E5DA /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 884D9EF82074E06A0066E5DA /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		884D9EFC2074E06A0066E5DA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884D9EF92074E06A0066E5DA /* Parse.framework */; };
+		884D9EFD2074E06A0066E5DA /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 884D9EF92074E06A0066E5DA /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88504323207384A800D65E81 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88504322207384A800D65E81 /* CustomTextField.swift */; };
 		8850432520738FD500D65E81 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850432420738FD500D65E81 /* CustomButton.swift */; };
 		885043272073927200D65E81 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885043262073927200D65E81 /* CustomImageView.swift */; };
@@ -51,7 +55,6 @@
 		8897DF16204204E000F4672F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF10204204E000F4672F /* Artwork.swift */; };
 		8897DF17204204E000F4672F /* AppleMusicRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF12204204E000F4672F /* AppleMusicRequestFactory.swift */; };
 		8897DF18204204E000F4672F /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF13204204E000F4672F /* JSONKeys.swift */; };
-		8897DF1A2042064700F4672F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8897DF192042064700F4672F /* CloudKit.framework */; };
 		8897DF1E2042E0EC00F4672F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF1D2042E0EC00F4672F /* Node.swift */; };
 		8897DF202042E29E00F4672F /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897DF1F2042E29E00F4672F /* Level.swift */; };
 		88A120A2205122C20071D1D0 /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A120A1205122C20071D1D0 /* NodeComponent.swift */; };
@@ -67,12 +70,27 @@
 		88F60D0D2066AE7B000C8B0A /* LevelSelectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D072066AE7B000C8B0A /* LevelSelectModels.swift */; };
 		88F60D0E2066AE7B000C8B0A /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D082066AE7B000C8B0A /* LevelSelectViewController.swift */; };
 		88F60D0F2066AE7B000C8B0A /* LevelSelectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D092066AE7B000C8B0A /* LevelSelectInteractor.swift */; };
-		88F60D112066B156000C8B0A /* LevelDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D102066B156000C8B0A /* LevelDataManager.swift */; };
+		88F60D112066B156000C8B0A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D102066B156000C8B0A /* DataManager.swift */; };
 		88F60D152066BD7A000C8B0A /* LevelSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D132066BD7A000C8B0A /* LevelSelectCell.swift */; };
 		88F60D162066BD7A000C8B0A /* LevelSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F60D142066BD7A000C8B0A /* LevelSelectCell.xib */; };
 		88F60D182066C3C5000C8B0A /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D172066C3C5000C8B0A /* ReuseIdentifiers.swift */; };
 		88F60D1B2066F11E000C8B0A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F60D1A2066F11E000C8B0A /* MainMenuViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		884D9EFE2074E06A0066E5DA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				884D9EFD2074E06A0066E5DA /* Parse.framework in Embed Frameworks */,
+				884D9EFB2074E06A0066E5DA /* Bolts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		880333B32072BADA00AA3124 /* LevelRefiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRefiner.swift; sourceTree = "<group>"; };
@@ -82,6 +100,8 @@
 		88084E0D205558CE0047F930 /* PresenceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceComponent.swift; sourceTree = "<group>"; };
 		88449DC82046AC990091A904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88449DCB2046D2AA0091A904 /* TapComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapComponent.swift; sourceTree = "<group>"; };
+		884D9EF82074E06A0066E5DA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		884D9EF92074E06A0066E5DA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		88504322207384A800D65E81 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8850432420738FD500D65E81 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		885043262073927200D65E81 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -122,7 +142,6 @@
 		8897DF10204204E000F4672F /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		8897DF12204204E000F4672F /* AppleMusicRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleMusicRequestFactory.swift; sourceTree = "<group>"; };
 		8897DF13204204E000F4672F /* JSONKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
-		8897DF192042064700F4672F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8897DF1D2042E0EC00F4672F /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8897DF1F2042E29E00F4672F /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		88A120A1205122C20071D1D0 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
@@ -138,7 +157,7 @@
 		88F60D072066AE7B000C8B0A /* LevelSelectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectModels.swift; sourceTree = "<group>"; };
 		88F60D082066AE7B000C8B0A /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		88F60D092066AE7B000C8B0A /* LevelSelectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectInteractor.swift; sourceTree = "<group>"; };
-		88F60D102066B156000C8B0A /* LevelDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataManager.swift; sourceTree = "<group>"; };
+		88F60D102066B156000C8B0A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		88F60D132066BD7A000C8B0A /* LevelSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectCell.swift; sourceTree = "<group>"; };
 		88F60D142066BD7A000C8B0A /* LevelSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelSelectCell.xib; sourceTree = "<group>"; };
 		88F60D172066C3C5000C8B0A /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
@@ -150,7 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8897DF1A2042064700F4672F /* CloudKit.framework in Frameworks */,
+				884D9EFC2074E06A0066E5DA /* Parse.framework in Frameworks */,
+				884D9EFA2074E06A0066E5DA /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +323,8 @@
 		8897DEFD2041E0A000F4672F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8897DF192042064700F4672F /* CloudKit.framework */,
+				884D9EF82074E06A0066E5DA /* Bolts.framework */,
+				884D9EF92074E06A0066E5DA /* Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -337,7 +358,7 @@
 				8897DF12204204E000F4672F /* AppleMusicRequestFactory.swift */,
 				8897DF13204204E000F4672F /* JSONKeys.swift */,
 				88449DC82046AC990091A904 /* Extensions.swift */,
-				88F60D102066B156000C8B0A /* LevelDataManager.swift */,
+				88F60D102066B156000C8B0A /* DataManager.swift */,
 				88F60D172066C3C5000C8B0A /* ReuseIdentifiers.swift */,
 			);
 			path = Utility;
@@ -425,6 +446,7 @@
 				8897DEDD203F065A00F4672F /* Sources */,
 				8897DEDE203F065A00F4672F /* Frameworks */,
 				8897DEDF203F065A00F4672F /* Resources */,
+				884D9EFE2074E06A0066E5DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,7 +534,7 @@
 				88504332207395B600D65E81 /* PreLevelCreateModels.swift in Sources */,
 				8885942A2071700E002450CD /* Timeable.swift in Sources */,
 				8897DF17204204E000F4672F /* AppleMusicRequestFactory.swift in Sources */,
-				88F60D112066B156000C8B0A /* LevelDataManager.swift in Sources */,
+				88F60D112066B156000C8B0A /* DataManager.swift in Sources */,
 				8897DF0C2042048E00F4672F /* AuthorizationManager.swift in Sources */,
 				88F60D0C2066AE7B000C8B0A /* LevelSelectRouter.swift in Sources */,
 				88F60D0B2066AE7B000C8B0A /* LevelSelectWorker.swift in Sources */,
@@ -699,6 +721,11 @@
 				CODE_SIGN_ENTITLEMENTS = Rhy/Rhy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PGZM5CDR37;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Rhy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanabuzyarov.Rhy;
@@ -715,6 +742,11 @@
 				CODE_SIGN_ENTITLEMENTS = Rhy/Rhy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PGZM5CDR37;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Rhy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanabuzyarov.Rhy;
