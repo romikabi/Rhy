@@ -21,8 +21,10 @@ class LevelRefiner{
             let node = level.nodes[index]
             var timeNodes = [Node]()
             for node2 in level.nodes[(index+1)...]{
-                if node2.time < node.time + 100 && node2.line == node.line{
-                    timeNodes.append(node2)
+                if node2.time < node.time + 150 {
+                    if node2.line == node.line{
+                        timeNodes.append(node2)
+                    }
                 }
                 else{
                     break
@@ -54,7 +56,7 @@ class LevelRefiner{
             let node = level.nodes[index]
             var timeNodes = [Node]()
             for node2 in level.nodes[(index+1)...]{
-                if node2.time < node.time + 100 && node2.line != node.line{
+                if node2.time < node.time + 90 && node2.line != node.line{
                     timeNodes.append(node2)
                 }
                 else{

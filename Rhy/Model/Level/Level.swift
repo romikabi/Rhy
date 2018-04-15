@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Parse
 
-class Level : Codable{
+class Level {
     var title: String
     var lines: Int
     var length: Int //millis
@@ -24,6 +25,9 @@ class Level : Codable{
     var rating: Double
     var ratingCount: Int
     var authorId: String
+    var speed: Int
+    
+    var pfo: PFObject?
     
     init(title: String,
          lines: Int,
@@ -34,7 +38,8 @@ class Level : Codable{
          star: Bool = false,
          rating: Double = 0,
          ratingCount: Int = 0,
-         authorId: String = ""){
+         authorId: String = "",
+         speed: Int = 500){
         self.title = title
         self.lines = lines
         self.songId = songId
@@ -46,5 +51,21 @@ class Level : Codable{
         self.rating = rating
         self.ratingCount = ratingCount
         self.authorId = authorId
+        self.speed = speed
+    }
+    
+    func rate(ofFive: Int){
+        pfo?.fetchIfNeededInBackground(block: { (pfo, er) in
+            if let er = er{
+                print(er.localizedDescription)
+                return
+            }
+            guard let pfo = pfo else {return}
+            let r = pfo["rating"] as? Double ?? 0
+            let c = pfo["ratingCount"] as? Int ?? 0
+            pfo["rating"] = (r*Double(c) + Double(ofFive*20))/Double(c+1)
+            pfo["ratingCount"] = c+1
+            pfo.saveInBackground()
+        })
     }
 }

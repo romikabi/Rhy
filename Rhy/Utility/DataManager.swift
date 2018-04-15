@@ -14,34 +14,34 @@ protocol DataManager {
     func loadLevels(for id: String, onSuccess: @escaping ([Level]) -> Void)
 }
 
-class LocalDataManager {
-
-    private static var ud = UserDefaults.standard
-
-    static func save(level: Level, for id: String) {
-
-        var levels = ud.stringArray(forKey: id) ?? []
-        do {
-            if let string = String(data: try JSONEncoder().encode(level), encoding: .utf8) {
-                levels.append(string)
-            }
-        } catch {}
-
-        ud.set(levels, forKey: id)
-    }
-
-    static func loadLevels(for id: String) -> [Level] {
-        let decoder = JSONDecoder()
-        do {
-            return try (ud.stringArray(forKey: id) ?? []).map {
-                try decoder.decode(Level.self, from: $0.data(using: .utf8)!)
-            }
-        } catch {
-            print("error while decoding level")
-            return []
-        }
-    }
-}
+//class LocalDataManager {
+//
+//    private static var ud = UserDefaults.standard
+//
+//    static func save(level: Level, for id: String) {
+//
+//        var levels = ud.stringArray(forKey: id) ?? []
+//        do {
+//            if let string = String(data: try JSONEncoder().encode(level), encoding: .utf8) {
+//                levels.append(string)
+//            }
+//        } catch {}
+//
+//        ud.set(levels, forKey: id)
+//    }
+//
+//    static func loadLevels(for id: String) -> [Level] {
+//        let decoder = JSONDecoder()
+//        do {
+//            return try (ud.stringArray(forKey: id) ?? []).map {
+//                try decoder.decode(Level.self, from: $0.data(using: .utf8)!)
+//            }
+//        } catch {
+//            print("error while decoding level")
+//            return []
+//        }
+//    }
+//}
 
 class ParseDataManager: DataManager {
     func save(level: Level, for id: String) {
@@ -65,6 +65,7 @@ class ParseDataManager: DataManager {
         pfo["rating"] = level.rating
         pfo["ratingCount"] = level.ratingCount
         pfo["authorId"] = level.authorId
+        pfo["speed"] = level.speed
 
         pfo.saveInBackground()
     }
@@ -94,9 +95,10 @@ class ParseDataManager: DataManager {
                         let rating = pfo["rating"] as? Double ?? 0.0
                         let ratingCount = pfo["ratingCount"] as? Int ?? 0
                         let authorId = pfo["authorId"] as? String ?? ""
+                        let speed = pfo["speed"] as? Int ?? 500
 
-                        let level = Level(title: title, lines: lines, songId: songId, length: length, nodes: nodes, author: author, star: star, rating: rating, ratingCount: ratingCount, authorId: authorId)
-
+                        let level = Level(title: title, lines: lines, songId: songId, length: length, nodes: nodes, author: author, star: star, rating: rating, ratingCount: ratingCount, authorId: authorId, speed: speed)
+                        level.pfo = pfo
                         levels.append(level)
                     }
 

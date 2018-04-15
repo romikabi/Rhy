@@ -54,8 +54,11 @@ class VerticalNodePositionComponent: GKComponent {
         guard let skNode = skNode else { return }
         guard let nodeComponent = nodeComponent else { return }
         let y = CGFloat((time - seconds) * speed * scale * scaleAroundZero)
+        //let nodeScale = (y - 2000) / -2000
         if (y.abs < 2000) || (skNode.position.y.abs < 2000) {
             skNode.position.y = y
+            //skNode.xScale = nodeScale
+            //skNode.yScale = nodeScale
         }
 
         if skNode.position.y.abs < 2000 {

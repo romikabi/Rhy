@@ -78,9 +78,10 @@ class LevelCreateScene: SKScene {
         songId = id
         globalSpeed = speed.double
         createLines(lineAmount: lineAmount)
-        self.level = initiateLevel(title: levelName, lines: lineAmount, songId: id)
+        self.level = initiateLevel(title: levelName, lines: lineAmount, songId: id, speed: speed)
         
-        musicPlayerManager.beginPlayback(itemID: id)    
+        musicPlayerManager.beginPlayback(itemID: id)
+        musicPlayerManager.musicPlayerController.play()
     }
     
     func createHorizontals(duration: TimeInterval){
@@ -99,8 +100,8 @@ class LevelCreateScene: SKScene {
         }
     }
     
-    func initiateLevel(title: String, lines: Int, songId: String, author: String = "")->Level{
-        let level = Level(title: title, lines: lines, songId: songId)
+    func initiateLevel(title: String, lines: Int, songId: String, author: String = "romikabi", speed: Int = 500)->Level{
+        let level = Level(title: title, lines: lines, songId: songId, speed: speed)
         level.author = author
         return level
     }
@@ -217,7 +218,7 @@ class LevelCreateScene: SKScene {
                     
                 case menuName:
                     if playing{
-                        musicPlayerManager.togglePlayPause()
+                        musicPlayerManager.musicPlayerController.pause()
                         pauseNode?.run(SKAction.setTexture(SKTexture(image: #imageLiteral(resourceName: "play"))))
                     }
                     blur?.run(SKAction.fadeAlpha(to: 0.5, duration: 0.2))
@@ -232,21 +233,20 @@ class LevelCreateScene: SKScene {
                     
                 case refineName:
                     if let level = level{
-                        let deleted = LevelRefiner.mergeNodes(level: level)
-                        for node in deleted{
-                            var done = false
-                            for line in lines{
-                                for child in line.children{
-                                    if child.userData?["levelNode"] as? Node == node{
-                                        remove(node: child)
-                                        done = true
-                                        break
-                                    }
-                                }
-                                if done {
-                                    break
+                        let _ = LevelRefiner.mergeNodes(level: level)
+                        
+                        for line in lines{
+                            for node in line.children{
+                                node.removeFromParent()
+                                if let entity = node.userData?["entity"] as? GKEntity,
+                                    let index = self.entities.index(of: entity){
+                                    entities.remove(at: index)
                                 }
                             }
+                        }
+                        
+                        for node in level.nodes{
+                            createNode(lNode: node)
                         }
                         
                         LevelRefiner.stabilizeNodes(level: level)
@@ -272,12 +272,20 @@ class LevelCreateScene: SKScene {
         return musicPlayerManager.musicPlayerController.currentPlaybackTime
     }
     
+    func createNode(lNode: Node){
+        if let node = genericNode?.copy() as? SKShapeNode{
+            node.setColor(line: lNode.line)
+            
+            let entity = CreateNode(node: node, parent: lines[lNode.line], levelNode: lNode, speed: globalSpeed)
+            
+            entities.append(entity)
+        }
+    }
+    
     func createNode(line: Int){
         if let node = genericNode?.copy() as? SKShapeNode{
             node.setColor(line: line)
             let time = Int(musicPlayerManager.musicPlayerController.currentPlaybackTime * 1000)
-            
-            print(time)
             
             let levelNode = Node(line: line, time: time)
             let entity = CreateNode(node: node, parent: lines[line], levelNode: levelNode, speed: globalSpeed)
