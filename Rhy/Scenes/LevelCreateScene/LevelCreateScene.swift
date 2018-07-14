@@ -78,7 +78,8 @@ class LevelCreateScene: SKScene {
         songId = id
         globalSpeed = speed.double
         createLines(lineAmount: lineAmount)
-        self.level = initiateLevel(title: levelName, lines: lineAmount, songId: id, speed: speed)
+        let author = UserDefaults.standard.string(forKey: "nickname") ?? "romikabi"
+        self.level = initiateLevel(title: levelName, lines: lineAmount, songId: id, author: author, speed: speed)
         
         musicPlayerManager.beginPlayback(itemID: id)
         musicPlayerManager.musicPlayerController.play()

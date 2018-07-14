@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let configuration = ParseClientConfiguration {
-            $0.applicationId = "WxUZQ4hPJRqQrotgL6cYwaqnLT25paujUTN0vpXO"
-            $0.clientKey = "Oh9o86KewABx1V2F4oRmYDgD6mWLfztOWzhYEogl"
+            $0.applicationId = fetchKeyFromPlist("applicationId", forResourse: "keys", ofType: "plist")
+            $0.clientKey = fetchKeyFromPlist("clientKey", forResourse: "keys", ofType: "plist")
             $0.server = "https://parseapi.back4app.com"
         }
         Parse.initialize(with: configuration)
@@ -28,6 +28,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if AppleManager.instance.authorizationManager.cloudServiceStorefrontCountryCode.isEmpty{
             AppleManager.instance.authorizationManager.requestStorefrontCountryCode()
         }
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController: UIViewController
+        let name = UserDefaults.standard.string(forKey: "nickname")
+        if let name = name, !name.isEmpty
+        {
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "initial")
+        }
+        else
+        {
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "name")            
+        }
+        
+        self.window?.rootViewController = initialViewController
+        
+        self.window?.makeKeyAndVisible()
         
         return true
     }

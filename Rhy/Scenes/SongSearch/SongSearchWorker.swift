@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Parse
 
 class SongSearchWorker
 {
@@ -37,5 +38,27 @@ class SongSearchWorker
         manager.performAppleMusicGetRecentlyPlayed(userToken: authorization.userToken, completion: { (items, error) in
             onComplete(items)
         })
+    }
+    
+    func songsWithLevels(onComplete: @escaping ([MediaItem])->Void){
+        let query = PFQuery(className: "Level").addDescendingOrder("rating").selectKeys(["songId"])
+        
+        query.findObjectsInBackground { (pfos, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            
+            if let pfos = pfos{
+                let ids = pfos.map({ (pfo) -> String in
+                    return pfo["songId"] as? String ?? ""
+                })
+                self.manager.performAppleMusicSongsRequest(
+                    ids: ids,
+                    countryCode: self.authorization.cloudServiceStorefrontCountryCode, completion: { (items, error) in
+                        onComplete(items)
+                        
+                })
+            }
+        }
     }
 }

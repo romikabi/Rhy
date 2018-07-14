@@ -42,4 +42,17 @@ enum SongSearch
             var items: [SongItem]
         }
     }
+    
+    enum Songs{
+        struct Request
+        { }
+        struct Response
+        {
+            var items: [MediaItem]
+        }
+        struct ViewModel
+        {
+            var items: [SongItem]
+        }
+    }
 }

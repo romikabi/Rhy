@@ -16,6 +16,7 @@ protocol SongSearchDisplayLogic: class
 {
     func displaySearchResults(viewModel: SongSearch.Search.ViewModel)
     func displayRecent(viewModel: SongSearch.Recent.ViewModel)
+    func displaySongs(viewModel: SongSearch.Songs.ViewModel)
 }
 
 class SongSearchViewController: UIViewController
@@ -101,8 +102,9 @@ class SongSearchViewController: UIViewController
         initSearchController()
         registerNibs()
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
         self.view.backgroundColor = UIColor.dark
-        recent()
+        songs()
     }
     
     // MARK: Do something
@@ -122,6 +124,12 @@ class SongSearchViewController: UIViewController
         interactor?.recent(request: request)
     }
     
+    func songs(){
+        activityIndicator.startAnimating()
+        let request = SongSearch.Songs.Request()
+        interactor?.songs(request: request)
+    }
+    
     var items: [SongItem] = []{
         didSet{
             collectionView.reloadData()
@@ -139,6 +147,12 @@ extension SongSearchViewController : SongSearchDisplayLogic{
     }
     
     func displaySearchResults(viewModel: SongSearch.Search.ViewModel)
+    {
+        activityIndicator.stopAnimating()
+        self.items = viewModel.items
+    }
+    
+    func displaySongs(viewModel: SongSearch.Songs.ViewModel)
     {
         activityIndicator.stopAnimating()
         self.items = viewModel.items

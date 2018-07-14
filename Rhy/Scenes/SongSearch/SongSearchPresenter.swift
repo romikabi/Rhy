@@ -16,6 +16,7 @@ protocol SongSearchPresentationLogic
 {
     func presentSearchResults(response: SongSearch.Search.Response)
     func presentRecent(response: SongSearch.Recent.Response)
+    func presentSongs(response: SongSearch.Songs.Response)
 }
 
 class SongSearchPresenter: SongSearchPresentationLogic
@@ -43,6 +44,17 @@ class SongSearchPresenter: SongSearchPresentationLogic
         })
         DispatchQueue.main.async {
             self.viewController?.displayRecent(viewModel: viewModel)
+        }
+    }
+    
+    func presentSongs(response: SongSearch.Songs.Response)
+    {
+        let viewModel = SongSearch.Songs.ViewModel(items:
+            response.items.map {
+                SongItem(from: $0)
+        })
+        DispatchQueue.main.async {
+            self.viewController?.displaySongs(viewModel: viewModel)
         }
     }
 }

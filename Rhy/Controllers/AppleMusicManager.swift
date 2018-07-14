@@ -43,19 +43,42 @@ class AppleMusicManager {
             return developerToken
         }
         else{
-            if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
-                let keys = NSDictionary(contentsOfFile: path)
-                if let keys = keys{
-                    if let developerToken = keys["developerToken"] as? String{
-                        return developerToken
-                    }
-                }
-            }
+            return fetchKeyFromPlist("developerToken", forResourse: "keys", ofType: "plist")
         }
         return ""
     }
     
     // MARK: General Apple Music API Methods
+    
+    func performAppleMusicSongsRequest(ids: [String], countryCode: String, completion: @escaping GetRecentlyPlayedCompletionHandler) {
+        guard let developerToken = fetchDeveloperToken() else {
+            fatalError("Developer Token not configured. See README for more details.")
+        }
+        
+        let urlRequest = AppleMusicRequestFactory.createSongsRequest(ids: ids, countryCode: countryCode, developerToken: developerToken)
+        
+        let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil, let urlResponse = response as? HTTPURLResponse, urlResponse.statusCode == 200 else {
+                completion([], error)
+                return
+            }
+            
+            do {
+                guard let jsonDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any],
+                    let results = jsonDictionary[ResponseRootJSONKeys.data] as? [[String: Any]] else {
+                        throw SerializationError.missing(ResponseRootJSONKeys.data)
+                }
+                
+                let mediaItems = try self.processMediaItems(from: results)
+                completion(mediaItems, nil)
+                
+            } catch {
+                fatalError("An error occurred: \(error.localizedDescription)")
+            }
+        }
+        
+        task.resume()
+    }
     
     func performAppleMusicCatalogSearch(with term: String, countryCode: String, completion: @escaping CatalogSearchCompletionHandler) {
         

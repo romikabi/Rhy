@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 import SpriteKit
 
+func fetchKeyFromPlist(_ keyName: String, forResourse: String, ofType: String) -> String {
+    if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+        let keys = NSDictionary(contentsOfFile: path)
+        if let keys = keys{
+            if let key = keys[keyName] as? String{
+                return key
+            }
+        }
+    }
+    return ""
+}
+
 extension UIColor{
     convenience init(hex: String){
         let hex = hex.trimmingCharacters(in: ["#", " "])

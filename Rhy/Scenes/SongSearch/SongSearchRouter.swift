@@ -53,7 +53,7 @@ class SongSearchRouter: NSObject, SongSearchRoutingLogic, SongSearchDataPassing
     {
         let row = viewController?.collectionView.indexPathsForSelectedItems?.first?.row
         if let row = row{
-            destination.songId = source.search[row].identifier
+            destination.songId = source.data[row].identifier
         }
     }
 }

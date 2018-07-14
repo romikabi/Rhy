@@ -16,19 +16,27 @@ protocol SongSearchBusinessLogic
 {
     func search(request: SongSearch.Search.Request)
     func recent(request: SongSearch.Recent.Request)
+    func songs(request: SongSearch.Songs.Request)
 }
 
 protocol SongSearchDataStore
 {
     var search: [MediaItem] {get set}
     var recent: [MediaItem] {get set}
+    var songs: [MediaItem] {get set}
+    
+    var data: [MediaItem] {get set}
 }
 
 class SongSearchInteractor: SongSearchBusinessLogic, SongSearchDataStore
 {
+    var songs: [MediaItem] = []
+    
     var search: [MediaItem] = []
     
     var recent: [MediaItem] = []
+    
+    var data: [MediaItem] = []
     
     var presenter: SongSearchPresentationLogic?
     var worker: SongSearchWorker?
@@ -43,6 +51,7 @@ class SongSearchInteractor: SongSearchBusinessLogic, SongSearchDataStore
         worker?.search(for: request.query, onComplete: { (items) in
             let response = SongSearch.Search.Response(items: items)
             self.search = items
+            self.data = items
             self.presenter?.presentSearchResults(response: response)
         })
     }
@@ -51,7 +60,17 @@ class SongSearchInteractor: SongSearchBusinessLogic, SongSearchDataStore
         worker?.recent(onComplete: { (items) in
             let response = SongSearch.Recent.Response(items: items)
             self.recent = items
+            self.data = items
             self.presenter?.presentRecent(response: response)
+        })
+    }
+    
+    func songs(request: SongSearch.Songs.Request) {
+        worker?.songsWithLevels(onComplete: { (items) in
+            let response = SongSearch.Songs.Response(items: items)
+            self.songs = items
+            self.data = items
+            self.presenter?.presentSongs(response: response)
         })
     }
 }

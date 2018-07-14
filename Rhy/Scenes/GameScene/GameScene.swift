@@ -228,7 +228,9 @@ class GameScene: SKScene {
                     menuScreen?.run(SKAction.fadeIn(withDuration: 0.2))
                     
                 case "menu":
-                    level?.rate(ofFive: userRating)
+                    if let userRating = userRating{
+                        level?.rate(ofFive: userRating)
+                    }
                     viewController?.performSegue(withIdentifier: "goToInitial", sender: viewController)
                     
                 case "close":
@@ -254,7 +256,7 @@ class GameScene: SKScene {
             }
         }
     }
-    private var userRating : Int = 0
+    private var userRating : Int?
     
     private var playing: Bool{
         get{
